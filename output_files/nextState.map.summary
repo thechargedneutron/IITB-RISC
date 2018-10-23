@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Tue Oct 23 18:44:16 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : nextState
+Top-level Entity Name : NextStateFSMLogic
+Family : MAX V
+Total logic elements : 7
+Total pins : 19
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

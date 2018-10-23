@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Oct 23 18:44:23 2018
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : nextState
+Top-level Entity Name : NextStateFSMLogic
+Family : MAX V
+Device : 5M1270ZT144C5
+Timing Models : Final
+Total logic elements : 7 / 1,270 ( < 1 % )
+Total pins : 19 / 114 ( 17 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -1,0 +1,36 @@
+|NextStateFSMLogic
+current_state[0] => Mux0.IN19
+current_state[0] => Mux1.IN36
+current_state[0] => Mux2.IN35
+current_state[0] => Mux3.IN36
+current_state[1] => Mux1.IN35
+current_state[1] => Mux2.IN34
+current_state[1] => Mux3.IN35
+current_state[2] => Mux0.IN18
+current_state[2] => Mux1.IN34
+current_state[2] => Mux2.IN33
+current_state[2] => Mux3.IN34
+current_state[3] => Mux0.IN17
+current_state[3] => Mux1.IN33
+current_state[3] => Mux2.IN32
+current_state[3] => Mux3.IN33
+current_state[4] => Mux0.IN16
+current_state[4] => Mux1.IN32
+current_state[4] => Mux2.IN31
+current_state[4] => Mux3.IN32
+op_code[0] => ~NO_FANOUT~
+op_code[1] => ~NO_FANOUT~
+op_code[2] => ~NO_FANOUT~
+op_code[3] => Mux2.IN36
+condition[0] => ~NO_FANOUT~
+condition[1] => ~NO_FANOUT~
+C => ~NO_FANOUT~
+Z => ~NO_FANOUT~
+PE0 => ~NO_FANOUT~
+next_state[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+next_state[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+next_state[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+next_state[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+next_state[4] <= <GND>
+
+
