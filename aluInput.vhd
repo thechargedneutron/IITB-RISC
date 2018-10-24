@@ -1,17 +1,19 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity NextStateFSMLogic is
-  port (current_state: IN STD_LOGIC_VECTOR(4 downto 0);
-        op_code: IN STD_LOGIC_VECTOR(3 downto 0);
-        condition: IN STD_LOGIC_VECTOR(1 downto 0);
-        C, Z: IN STD_LOGIC;
-        PE0: IN STD_LOGIC;
+entity ALUInput is
+  port (state: IN STD_LOGIC_VECTOR(4 downto 0);
+        PC: IN STD_LOGIC_VECTOR(15 downto 0);
+        t1: IN STD_LOGIC_VECTOR(15 downto 0);
+        t2: IN STD_LOGIC_VECTOR(15 downto 0);
+        SE6_op: IN STD_LOGIC_VECTOR(15 downto 0);
+        SE9_op: IN STD_LOGIC_VECTOR(15 downto 0);
 
-        next_state: OUT STD_LOGIC_VECTOR(4 downto 0));
-end NextStateFSMLogic;
+        ALU_a: OUT STD_LOGIC_VECTOR(15 downto 0);
+        ALU_b: OUT STD_LOGIC_VECTOR(15 downto 0));
+end ALUInput;
 
-architecture behave of NextStateFSMLogic is
+architecture behave of ALUInput is
   constant S1: STD_LOGIC_VECTOR(4 downto 0) := "00001";
   constant S2: STD_LOGIC_VECTOR(4 downto 0) := "00010";
   constant S3: STD_LOGIC_VECTOR(4 downto 0) := "00011";
@@ -36,19 +38,32 @@ architecture behave of NextStateFSMLogic is
     begin
       case current_state is
         when S1 =>
-                next_state <= S2;
-
+                ALU_a <= PC;
+                ALU_b <= "00000001";
         when S3 =>
-                next_state <= S5;
-
+                ALU_a <= t1;
+                ALU_b <= SE6_op;
         when S31 =>
-                if op_code(3) ='0' then
-                  next_state <= S7;
-                else
-                  next_state <= S8;
-                end if;
-        when others =>
-                next_state <= S9;
+                ALU_a <= t2;
+                ALU_b <= SE6_op;
+        when S4 =>
+                ALU_a <= t1;
+                ALU_b <= t2;
+        when S9 =>
+                ALU_a <= PC;
+                ALU_b <= SE9_op;
+        when S12 =>
+                ALU_a <= t2;
+                ALU_b <= "00000001";
+        when S14 =>
+                ALU_a <= t1;
+                ALU_b <= "00000001";
+        when S15 =>
+                ALU_a <= PC;
+                ALU_b <= SE6_op;
+        when SZ =>
+                ALU_a <= "00000000";
+                ALU_b <= t2;
       end case;
     end process;
 end behave;
