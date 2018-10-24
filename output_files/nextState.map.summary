@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Tue Oct 23 18:44:16 2018
-Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Analysis & Synthesis Status : Successful - Wed Oct 24 22:11:18 2018
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 Revision Name : nextState
-Top-level Entity Name : NextStateFSMLogic
+Top-level Entity Name : oneBitRegister
 Family : MAX V
-Total logic elements : 7
-Total pins : 19
+Total logic elements : 1
+Total pins : 5
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

@@ -7,36 +7,36 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/geek-at-work/Desktop/EE-309-Project-1/simulation/modelsim
-Enextstatefsmlogic
-Z1 w1540300201
+Z0 d/home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/simulation/modelsim
+Eonebitregister
+Z1 w1540399174
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 R0
-Z4 8/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
-Z5 F/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
+Z4 8/home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd
+Z5 F/home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd
 l0
 L4
-V[CNhmhzIg4WQ6_EzoPELN2
-!s100 bfXc[eWT=BKMZ=>=FZ^8:2
-Z6 OV;C;10.5b;63
+VQmLdU^L5B8k2cU`BUTg]k2
+!s100 _JohF8O>nD<2Dh<[NAPmZ0
+Z6 OV;C;10.4d;61
 31
-Z7 !s110 1540300616
+Z7 !s110 1540399329
 !i10b 1
-Z8 !s108 1540300615.000000
-Z9 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
-Z10 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
+Z8 !s108 1540399329.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|/home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd|
+Z10 !s107 /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd|
 !i113 1
 Z11 o-93 -work work
-Z12 tExplicit 1 CvgOpt 0
-Abehave
+Z12 tExplicit 1
+Adescription
 R2
 R3
-DEx4 work 17 nextstatefsmlogic 0 22 [CNhmhzIg4WQ6_EzoPELN2
-l35
-L14
-VXl4AhbTNaWRRe6D?QlXoJ0
-!s100 V]0Zbi=]_WB7VgkmWWWJ22
+DEx4 work 14 onebitregister 0 22 QmLdU^L5B8k2cU`BUTg]k2
+l17
+L15
+VOQ6F1AECnhRKZAZgog?jD2
+!s100 dBclFGT4GS_aIY2?haa2l3
 R6
 31
 R7
