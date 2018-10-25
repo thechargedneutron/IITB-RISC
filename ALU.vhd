@@ -3,6 +3,7 @@ use ieee.std_logic_1164.all;
 use IEEE.numeric_std.all;
 entity ALU is
   port (current_state: IN STD_LOGIC_VECTOR(4 downto 0);
+		  opcode: IN STD_LOGIC_VECTOR(3 downto 0);
         PC: IN STD_LOGIC_VECTOR(15 downto 0);
         t1: IN STD_LOGIC_VECTOR(15 downto 0);
         t2: IN STD_LOGIC_VECTOR(15 downto 0);
@@ -34,7 +35,7 @@ architecture behave of ALU is
   variable ALU_out1 : std_logic_vector(16 downto 0); -- 17 bits , for compensating a carry
 
   begin
-    process (current_state,PC,t1,t2,SE6_op,SE9_op,condition,C_in,Z_in) --many more
+    process (current_state,opcode,PC,t1,t2,SE6_op,SE9_op,condition,C_in,Z_in) --many more
     begin
       case current_state is
         when S1 =>
@@ -55,9 +56,32 @@ architecture behave of ALU is
                 Z_out <= Z_in;
                 C_out <= C_in;
         when S4 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned(one));
-                Z_out <= Z_in;
-                C_out <= C_in;
+					 if opcode = "0000" then
+						ALU_out1 := STD_LOGIC_VECTOR(('0' & unsigned(PC)) + ('0' & unsigned(one)));
+						ALU_out <= ALU_out1(15 downto 0);
+						if ALU_out1(15 downto 0) = "0000000000000000" then
+							Z_out <= '1';
+						else 
+							Z_out <= '0';
+						C_out <= ALU_out1(16);
+						end if;
+					 elsif opcode = "0010" then
+						ALU_out1 := ('0' & pc) nand ('0' & one);--change pc and one here
+						ALU_out <= ALU_out1(15 downto 0);
+						if ALU_out1(15 downto 0) = "0000000000000000" then
+							Z_out <= '1';
+						else 
+							Z_out <= '0';
+						end if;
+					 else 
+					   ALU_out1 := STD_LOGIC_VECTOR(('0' & unsigned(PC)) - ('0' & unsigned(one)));
+						ALU_out <= ALU_out1(15 downto 0);
+						if ALU_out1(15 downto 0) = "0000000000000000" then
+							Z_out <= '1';
+						else 
+							Z_out <= '0';
+						end if;
+					 end if;
         when S9 =>
                 ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned(SE9_op));
                 Z_out <= Z_in;

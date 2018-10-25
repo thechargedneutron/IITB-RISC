@@ -1,5 +1,5 @@
 Fitter report for nextState
-Thu Oct 25 10:29:27 2018
+Thu Oct 25 11:10:23 2018
 Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
 
 
@@ -56,7 +56,7 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Thu Oct 25 10:29:27 2018       ;
+; Fitter Status         ; Successful - Thu Oct 25 11:10:23 2018       ;
 ; Quartus Prime Version ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
 ; Revision Name         ; nextState                                   ;
 ; Top-level Entity Name ; oneBitRegister                              ;
@@ -585,8 +585,8 @@ Warning (169174): The Reserve All Unused Pins setting has not been specified, an
 Info (144001): Generated suppressed messages file /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/output_files/nextState.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 1273 megabytes
-    Info: Processing ended: Thu Oct 25 10:29:27 2018
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Thu Oct 25 11:10:23 2018
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 

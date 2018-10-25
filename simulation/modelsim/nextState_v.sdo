@@ -25,7 +25,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "oneBitRegister")
-  (DATE "10/25/2018 10:29:30")
+  (DATE "10/25/2018 11:10:26")
   (VENDOR "Altera")
   (PROGRAM "Quartus Prime")
   (VERSION "Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition")
