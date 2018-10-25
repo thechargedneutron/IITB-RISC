@@ -1,17 +1,17 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity oneBitRegister is
-	port (d : IN STD_LOGIC;
+entity sixteenBitRegister is
+	port (d : IN STD_LOGIC_VECTOR(15 downto 0);
 				ld : IN STD_LOGIC;
 				clr : IN STD_LOGIC;
 				clk : IN STD_LOGIC;
 
-				q : OUT STD_LOGIC);
-end oneBitRegister;
+				q : OUT STD_LOGIC_VECTOR(15 downto 0));
+end sixteenBitRegister;
 
 
-architecture description of oneBitRegister is
+architecture description of sixteenBitRegister is
 		begin
 			process (clk, clr)
 			begin
@@ -24,4 +24,3 @@ architecture description of oneBitRegister is
 					end if;
 			end process;
 end description;
-		
