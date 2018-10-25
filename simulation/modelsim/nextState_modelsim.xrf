@@ -1,4 +1,5 @@
 vendor_name = ModelSim
+source_file = 1, /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/ALU.vhd
 source_file = 1, /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd
 source_file = 1, /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/nextState.vhd
 source_file = 1, /home/gimmepizza/altera_lite/16.0/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
