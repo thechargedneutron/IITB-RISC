@@ -1,80 +1,95 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use IEEE.numeric_std.all;
 entity ALU is
-  port (state: IN STD_LOGIC_VECTOR(4 downto 0);
-        PC: IN STD_LOGIC_VECTOR(15 downto 0);
-        t1: IN STD_LOGIC_VECTOR(15 downto 0);
-        t2: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE6_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE9_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        condition: IN STD_LOGIC_VECTOR(1 downto 0);
-        C_in: IN STD_LOGIC;
-        Z_in: IN STD_LOGIC;
-
+  port (operation: IN STD_LOGIC_VECTOR(2 downto 0);
+        alu_a: IN STD_LOGIC_VECTOR(15 downto 0);
+        alu_b: IN STD_LOGIC_VECTOR(15 downto 0);
+		  
         ALU_out: OUT STD_LOGIC_VECTOR(15 downto 0);
         C_out: OUT STD_LOGIC;
-        Z_out: OUT STD_LOGIC
-        );
+        Z_out: OUT STD_LOGIC;
+        beq_out: OUT STD_LOGIC;
+        C_en: OUT STD_LOGIC;
+        Z_en: OUT STD_LOGIC;
+		beq_en: OUT STD_LOGIC
+        
+		  );
 end ALU;
 
 
 architecture behave of ALU is
-  constant S1: STD_LOGIC_VECTOR(4 downto 0) := "00001";
-  constant S3: STD_LOGIC_VECTOR(4 downto 0) := "00011";
-  constant S31: STD_LOGIC_VECTOR(4 downto 0) := "00100";
-  constant S4: STD_LOGIC_VECTOR(4 downto 0) := "00101";
-  constant S9: STD_LOGIC_VECTOR(4 downto 0) := "01100";
-  constant S12: STD_LOGIC_VECTOR(4 downto 0) := "01110";
-  constant S14: STD_LOGIC_VECTOR(4 downto 0) := "10000";
-  constant S15: STD_LOGIC_VECTOR(4 downto 0) := "10001";
-  constant SZ: STD_LOGIC_VECTOR(4 downto 0) := "10010";
-
-
+  variable ALU_out1 : std_logic_vector(16 downto 0); -- 17 bits , for compensating a carry
 
   begin
-    process (current_state, op_code, C, Z, condition, PE0) --many more
+    process (operation,alu_a,alu_b)
     begin
-      case current_state is
-        when S1 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S3 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S31 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S4 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S9 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned(SE9_out));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S12 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S14 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned("00000001"));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when S15 =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(PC) + unsigned(SE6_out));
-                Z_out <= Z_in;
-                C_out <= C_in;
-        when SZ =>
-                ALU_out <= STD_LOGIC_VECTOR(unsigned(t2) + unsigned("00000000"));
-                Z_out <= Z_in;
-                C_out <= C_in;
+      case operation is
+        when "000" => -- add without flag updates
+                ALU_out <= STD_LOGIC_VECTOR(unsigned(alu_a) + unsigned(alu_b));
+                Z_out <= '0';
+                C_out <= '0';
+
+					Z_en  <= '0';
+					C_en  <= '0';
+					beq_en <= '0';
+        when "001" => -- add with flag updates
+                ALU_out1 := STD_LOGIC_VECTOR(('0' & unsigned(alu_a)) + ('0' & unsigned(alu_b)));
+                ALU_out <= ALU_out1(15 downto 0);
+					if ALU_out1(15 downto 0) = "0000000000000000" then
+						Z_out <= '1';
+					else 
+						Z_out <= '0';
+					end if;
+   				C_out <= ALU_out1(16);
+   				beq_out <= '0';
+					Z_en  <= '1';
+					C_en  <= '1';
+					beq_en <= '0';
+				
+        when "010" =>-- nand with z flag
+					ALU_out1 := ('0' & alu_a) nand ('0' & alu_b);--change pc and one here
+					ALU_out <= ALU_out1(15 downto 0);
+					if ALU_out1(15 downto 0) = "0000000000000000" then
+						Z_out <= '1';
+					else 
+						Z_out <= '0';
+					end if;
+				    C_out <= '0';
+				    beq_out <= '0';
+				    Z_en  <= '1';
+				    C_en  <= '0';
+					beq_en <= '0';
+        when "011" =>
+					if alu_a = alu_b then
+						beq_out <= '1';
+					else 
+						beq_out <= '0';
+					end if;
+				    C_out <= '0';
+				    Z_en  <= '0';
+					C_en  <= '0';
+					beq_en <= '1';
+        when "111" => -- doubtful implementation
+					ALU_out <= STD_LOGIC_VECTOR(unsigned(alu_a) + unsigned(alu_b));
+					if ALU_out1(15 downto 0) = "0000000000000000" then
+						Z_out <= '1';
+					else 
+						Z_out <= '0';
+					end if;
+					C_out <= '0';
+					beq_out <= '0';
+					Z_en  <= '1';
+					C_en  <= '0';
+					beq_en <= '0';
         when others =>
-                ALU_out <= "00000000";
-                C_out <= C_in;
-                Z_out <= Z_in;
+                ALU_out <= "0000000000000000";
+                C_out <= '0';
+                Z_out <= '0';
+				beq_out <= '0';
+				Z_en  <= '0';
+				C_en  <= '0';
+				beq_en <= '0';					 
       end case;
     end process;
 end behave;
