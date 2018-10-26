@@ -2,13 +2,23 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity IITB_RISC is
-	port (clock : IN STD_LOGIC;
+	port (clock : IN STD_LOGIC);
 end IITB_RISC;
 
 
 architecture behave of IITB_RISC is
 
-  component ALU is
+	component NextStateFSMLogic is
+  port (current_state: IN STD_LOGIC_VECTOR(4 downto 0);
+        op_code: IN STD_LOGIC_VECTOR(3 downto 0);
+        condition: IN STD_LOGIC_VECTOR(1 downto 0);
+        C, Z: IN STD_LOGIC;
+        PE0: IN STD_LOGIC;
+
+        next_state: OUT STD_LOGIC_VECTOR(4 downto 0));
+	end component;
+
+	component ALU is
   port (state: IN STD_LOGIC_VECTOR(4 downto 0);
         PC: IN STD_LOGIC_VECTOR(15 downto 0);
         t1: IN STD_LOGIC_VECTOR(15 downto 0);
@@ -32,6 +42,24 @@ architecture behave of IITB_RISC is
   				clk : IN STD_LOGIC;
 
   				q : OUT STD_LOGIC_VECTOR(15 downto 0));
+  end component;
+
+	component eightBitRegister is
+  	port (d : IN STD_LOGIC_VECTOR(7 downto 0);
+  				ld : IN STD_LOGIC;
+  				clr : IN STD_LOGIC;
+  				clk : IN STD_LOGIC;
+
+  				q : OUT STD_LOGIC_VECTOR(7 downto 0));
+  end component;
+
+	component fiveBitRegister is
+  	port (d : IN STD_LOGIC_VECTOR(4 downto 0);
+  				ld : IN STD_LOGIC;
+  				clr : IN STD_LOGIC;
+  				clk : IN STD_LOGIC;
+
+  				q : OUT STD_LOGIC_VECTOR(4 downto 0));
   end component;
 
   component oneBitRegister is
@@ -75,6 +103,37 @@ architecture behave of IITB_RISC is
 				op : OUT STD_LOGIC_VECTOR(15 downto 0));
   end component;
 
+	component TempRegisterInputA is
+		port (Rf_d1 : IN STD_LOGIC_VECTOR(15 downto 0);
+					alu_out : IN STD_LOGIC_VECTOR(15 downto 0);
+					mem_d : IN STD_LOGIC_VECTOR(15 downto 0);
+					current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+					op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
+					t1_write : OUT STD_LOGIC);
+		end component;
+
+		component TempRegisterInputB is
+			port (Rf_d2 : IN STD_LOGIC_VECTOR(15 downto 0);
+						alu_out : IN STD_LOGIC_VECTOR(15 downto 0);
+						mem_d : IN STD_LOGIC_VECTOR(15 downto 0);
+		        Rf_d1 : IN STD_LOGIC_VECTOR(15 downto 0);
+						current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+						op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
+						t2_write : OUT STD_LOGIC);
+		end component;
+
+		component Register7Input is
+			port (Rf_d1 : IN STD_LOGIC_VECTOR(15 downto 0);
+						alu_out : IN STD_LOGIC_VECTOR(15 downto 0);
+						PC : IN STD_LOGIC_VECTOR(15 downto 0);
+						current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+						op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
+						r7_write : OUT STD_LOGIC);
+		end component;
+
 
   component ALUInput is
   port (state: IN STD_LOGIC_VECTOR(4 downto 0);
@@ -107,6 +166,21 @@ architecture behave of IITB_RISC is
 				op : OUT STD_LOGIC_VECTOR(15 downto 0));
   end component;
 
+	component PEEnable is
+	port (current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+        PE_enable : OUT STD_LOGIC
+        );
+	end component;
+
+	component PCInput is
+	port (Rf_d1 : IN STD_LOGIC_VECTOR(15 downto 0);
+				alu_out : IN STD_LOGIC_VECTOR(15 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
+				pc_write : OUT STD_LOGIC);
+	end component;
+
 
     --List of all bunch of signals
     signal clear : STD_LOGIC;
@@ -118,7 +192,8 @@ architecture behave of IITB_RISC is
     signal t1_in : STD_LOGIC_VECTOR(15 downto 0);
     signal t2_in : STD_LOGIC_VECTOR(15 downto 0);
 
-    signal PC_out : STD_LOGIC_VECTOR(15 downto 0);
+		signal PC_in : STD_LOGIC_VECTOR(15 downto 0);
+		signal PC_out : STD_LOGIC_VECTOR(15 downto 0);
 
     signal C_in : STD_LOGIC;
     signal C_out : STD_LOGIC;
@@ -137,6 +212,7 @@ architecture behave of IITB_RISC is
 
     signal instruction : STD_LOGIC_VECTOR(15 downto 0);
     signal current_state : STD_LOGIC_VECTOR(4 downto 0);
+		signal next_state : STD_LOGIC_VECTOR(4 downto 0);
 
     --Registers
     signal R0 : STD_LOGIC_VECTOR(15 downto 0); signal R0_enable : STD_LOGIC;
@@ -147,6 +223,9 @@ architecture behave of IITB_RISC is
     signal R5 : STD_LOGIC_VECTOR(15 downto 0); signal R5_enable : STD_LOGIC;
     signal R6 : STD_LOGIC_VECTOR(15 downto 0); signal R6_enable : STD_LOGIC;
     signal R7 : STD_LOGIC_VECTOR(15 downto 0); signal R7_enable : STD_LOGIC;
+		signal R7_in : STD_LOGIC_VECTOR(15 downto 0); --Enable in enable pins section
+
+		signal PriorityEncoderReg : STD_LOGIC_VECTOR(7 downto 0);
 
     signal Rf_d1 : STD_LOGIC_VECTOR(15 downto 0);
     signal Rf_d2 : STD_LOGIC_VECTOR(15 downto 0);
@@ -155,15 +234,28 @@ architecture behave of IITB_RISC is
     signal Rf_a2 : STD_LOGIC_VECTOR(2 downto 0);
     signal Rf_a3 : STD_LOGIC_VECTOR(2 downto 0);
 
+		signal mem_d : STD_LOGIC_VECTOR(15 downto 0);
+		signal mem_a : STD_LOGIC_VECTOR(15 downto 0);
+
     ----------CONTROL SIGNALS ---------------------
     signal carry_enable : STD_LOGIC;
     signal zero_enable : STD_LOGIC;
     signal t1_write_enable: STD_LOGIC;
     signal t2_write_enable: STD_LOGIC;
+		signal PC_enable : STD_LOGIC;
+		signal R7_direct_enable : STD_LOGIC;
+		signal PE_enable : STD_LOGIC;
+		signal PE_zero_enale : STD_LOGIC;  --Make the just read register 0.
     ---MORE TO COME
     ---------END CONTROL SIGNALS-------------------
 
+		begin
     ----------REGISTER PORT MAPPINGS---------------
+
+		--Next State Transition
+		NxtState : NextStateFSMLogic port map(current_state, instruction(15 downto 12), instruction(1 downto 0), C_out, Z_out, PE0, next_state);
+		StateChange: fiveBitRegister port map(next_state, '1', clear, clock, current_state); --State Transition
+
     C: oneBitRegister port map(C_in, carry_enable, clear, clock, C_out);
     Z: oneBitRegister port map(Z_in, zero_enable, clear, clock, Z_out);
 
@@ -194,5 +286,26 @@ architecture behave of IITB_RISC is
     RegInpB: Rf_a2 <= instruction(8 downto 6); --No need of Multiplexing
     RegInpC: RegisterFileInputC port map(instruction(5 downto 3), instruction(8 downto 6), instruction(11 downto 9), PE_out, current_state, Rf_a3);
     RegInpD3: RegisterFileInputD3 port map(t1_out, SE9spl_out, R7, t2_out, current_state, Rf_d3);
+
+		TempRegA: TempRegisterInputA port map(Rf_d1, alu_out, mem_d, current_state, t1_in, t1_write_enable);
+		TempRegB: TempRegisterInputB port map(Rf_d2, alu_out, mem_d, Rf_d1, current_state, t2_in, t2_write_enable);
+
+		PC: sixteenBitRegister port map(PC_in, PC_enable, clear, clock, PC_out);
+		PCInput1: PCInput port map (Rf_d1, alu_out, current_state, PC_in, pc_write);
+
+		R7Input: Register7Input port map (Rf_d1, alu_out, PC_out, current_state, R7_in, R7_direct_enable);
+		Reg7Direct: sixteenBitRegister port map(R7_in, R7_direct_enable, clear, clock, R7);
+
+		PCDirect: sixteenBitRegister port map (Rf_d3, R7_enable , clear, clock, PC_out);  --Write to PC when R7 is being modified
+
+		--Priority Encoder code goes here
+		PriorityEncoderBlock: eightBitRegister port map (instruction(7 downto 0), PE_enable, clear, clock, PriorityEncoderReg); --In State2
+		PEEnableBlock : PEEnable port map (current_state, PE_enable);
+		PEBlock: PriorityEncoder port map (PriorityEncoderReg, PE_out, PE0);
+		PriorityModif : PriorityModify port map (PriorityEncoderReg, PE_out, current_state, PE_zero_enale, ModifiedPriorityReg);
+		Modify : eightBitRegister port map (ModifiedPriorityReg, PE_zero_enable, clear, clock, PriorityEncoderReg);
+
+		--Priority Encoder code ends here
+
 
 end behave;
