@@ -25,16 +25,16 @@ architecture behave of RegisterFileInputD3 is
     process (current_state, t1, SE9spl, R7, t2)
     begin
       case current_state is
-        when S5 | S51 | S12 =>
+        when S5 | S51 =>
                 op <= t1;
 				when S6 =>
 								op <= SE9spl;
 				when S9 | S10 =>
 								op <= R7;
-        when SZ =>
+        when SZ | S12 =>
                 op <= t2;
 				when others =>
-								op <= "000000000000000";
+								op <= "0000000000000000";
       end case;
     end process;
 end behave;

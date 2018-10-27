@@ -16,7 +16,7 @@ architecture behave of PriorityEncoder is
     begin
       if PriorityEncoderReg(0) = '1' then
         PE_out <= "000";
-        PE0 = '0';
+        PE0 <= '0';
       elsif PriorityEncoderReg(1) = '1' then
         PE_out <= "001";
         PE0 <= '0';

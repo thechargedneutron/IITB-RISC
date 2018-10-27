@@ -18,22 +18,20 @@ architecture behave of IITB_RISC is
         next_state: OUT STD_LOGIC_VECTOR(4 downto 0));
 	end component;
 
-	component ALU is
-  port (state: IN STD_LOGIC_VECTOR(4 downto 0);
+	component ALULogic is
+  port (current_state: IN STD_LOGIC_VECTOR(4 downto 0);
+        opcode: IN STD_LOGIC_VECTOR(3 downto 0);
         PC: IN STD_LOGIC_VECTOR(15 downto 0);
         t1: IN STD_LOGIC_VECTOR(15 downto 0);
         t2: IN STD_LOGIC_VECTOR(15 downto 0);
         SE6_op: IN STD_LOGIC_VECTOR(15 downto 0);
         SE9_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        condition: IN STD_LOGIC_VECTOR(1 downto 0);
-        C_in: IN STD_LOGIC;
-        Z_in: IN STD_LOGIC;
 
         ALU_out: OUT STD_LOGIC_VECTOR(15 downto 0);
-        C_out: OUT STD_LOGIC;
-        Z_out: OUT STD_LOGIC
-        );
-  end component;
+        C_out: OUT STD_LOGIC; carry_enable: OUT STD_LOGIC;
+        Z_out: OUT STD_LOGIC; zero_enable: OUT STD_LOGIC;
+        ALU_temp_z : OUT STD_LOGIC);
+	end component;
 
   component sixteenBitRegister is
   	port (d : IN STD_LOGIC_VECTOR(15 downto 0);
@@ -71,6 +69,23 @@ architecture behave of IITB_RISC is
 				q : OUT STD_LOGIC);
   end component;
 
+	component PriorityEncoder is
+	port (PriorityEncoderReg : STD_LOGIC_VECTOR(7 downto 0);
+
+				PE_out : OUT STD_LOGIC_VECTOR(2 downto 0);
+        PE0 : OUT STD_LOGIC);
+	end component;
+
+	component PriorityModify is
+	port (PriorityEncoderReg : IN STD_LOGIC_VECTOR(7 downto 0);
+				PE_out : IN STD_LOGIC_VECTOR(2 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				PE_zero_enable : OUT STD_LOGIC;
+				ModifiedPriorityReg : OUT STD_LOGIC_VECTOR(7 downto 0)
+        );
+	end component;
+
   component registerFileAccess is
 	port (R0, R1, R2, R3, R4, R5, R6, R7 : IN STD_LOGIC_VECTOR(15 downto 0);
 				Rf_a : IN STD_LOGIC_VECTOR(2 downto 0);
@@ -103,10 +118,19 @@ architecture behave of IITB_RISC is
 				op : OUT STD_LOGIC_VECTOR(15 downto 0));
   end component;
 
+	component RegisterFileInputC is
+	port (ir345 : IN STD_LOGIC_VECTOR(2 downto 0);
+				ir678 : IN STD_LOGIC_VECTOR(2 downto 0);
+        ir911 : IN STD_LOGIC_VECTOR(2 downto 0);
+				PEout : IN STD_LOGIC_VECTOR(2 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				op : OUT STD_LOGIC_VECTOR(2 downto 0));
+end component;
+
 	component TempRegisterInputA is
 		port (Rf_d1 : IN STD_LOGIC_VECTOR(15 downto 0);
 					alu_out : IN STD_LOGIC_VECTOR(15 downto 0);
-					mem_d : IN STD_LOGIC_VECTOR(15 downto 0);
 					current_state : IN STD_LOGIC_VECTOR(4 downto 0);
 
 					op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
@@ -133,20 +157,6 @@ architecture behave of IITB_RISC is
 						op_data : OUT STD_LOGIC_VECTOR(15 downto 0);
 						r7_write : OUT STD_LOGIC);
 		end component;
-
-
-  component ALUInput is
-  port (state: IN STD_LOGIC_VECTOR(4 downto 0);
-        PC: IN STD_LOGIC_VECTOR(15 downto 0);
-        t1: IN STD_LOGIC_VECTOR(15 downto 0);
-        t2: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE6_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE9_op: IN STD_LOGIC_VECTOR(15 downto 0);
-
-        ALU_a: OUT STD_LOGIC_VECTOR(15 downto 0);
-        ALU_b: OUT STD_LOGIC_VECTOR(15 downto 0);
-        operation: OUT STD_LOGIC_VECTOR(2 downto 0));
-  end component;
 
   component SignExtended6 is
 	port (inp : IN STD_LOGIC_VECTOR(5 downto 0);
@@ -195,11 +205,13 @@ architecture behave of IITB_RISC is
 		signal PC_in : STD_LOGIC_VECTOR(15 downto 0);
 		signal PC_out : STD_LOGIC_VECTOR(15 downto 0);
 
-    signal C_in : STD_LOGIC;
-    signal C_out : STD_LOGIC;
+    signal C_in : STD_LOGIC := '0';
+    signal C_out : STD_LOGIC := '0';
 
-    signal Z_in : STD_LOGIC;
-    signal Z_out : STD_LOGIC;
+    signal Z_in : STD_LOGIC := '0';
+    signal Z_out : STD_LOGIC := '0';
+
+		signal temp_z : STD_LOGIC; --For BEQ
 
     signal alu_a : STD_LOGIC_VECTOR(15 downto 0);
     signal alu_b : STD_LOGIC_VECTOR(15 downto 0);
@@ -226,6 +238,11 @@ architecture behave of IITB_RISC is
 		signal R7_in : STD_LOGIC_VECTOR(15 downto 0); --Enable in enable pins section
 
 		signal PriorityEncoderReg : STD_LOGIC_VECTOR(7 downto 0);
+		signal PE0 : STD_LOGIC;
+		signal PE_out : STD_LOGIC_VECTOR(2 downto 0);
+		signal ModifiedPriorityReg : STD_LOGIC_VECTOR(7 downto 0);
+
+		signal operation : STD_LOGIC_VECTOR(2 downto 0);
 
     signal Rf_d1 : STD_LOGIC_VECTOR(15 downto 0);
     signal Rf_d2 : STD_LOGIC_VECTOR(15 downto 0);
@@ -245,7 +262,7 @@ architecture behave of IITB_RISC is
 		signal PC_enable : STD_LOGIC;
 		signal R7_direct_enable : STD_LOGIC;
 		signal PE_enable : STD_LOGIC;
-		signal PE_zero_enale : STD_LOGIC;  --Make the just read register 0.
+		signal PE_zero_enable : STD_LOGIC;  --Make the just read register 0.
     ---MORE TO COME
     ---------END CONTROL SIGNALS-------------------
 
@@ -262,8 +279,7 @@ architecture behave of IITB_RISC is
     t1: sixteenBitRegister port map(t1_in, t1_write_enable, clear, clock, t1_out);
     t2: sixteenBitRegister port map(t2_in, t2_write_enable, clear, clock, t2_out);
 
-    aluInput: port map(state, PC_out, t1_out, t2_out, SE6_op, SE9_op)  --CHECK THIS
-    alu: ALU port map(alu_a, alu_b, operation, alu_out, C_in, Z_in);
+		alu: ALULogic port map (current_state, instruction(15 downto 12), PC_out, t1_out, t2_out, SE6_out, SE9_out, ALU_out, C_out, carry_enable, Z_out, zero_enable, temp_z);
 
     SE6: SignExtended6 port map(instruction(5 downto 0), SE6_out);
     SE9: SignExtended9 port map(instruction(8 downto 0), SE9_out);
@@ -287,11 +303,11 @@ architecture behave of IITB_RISC is
     RegInpC: RegisterFileInputC port map(instruction(5 downto 3), instruction(8 downto 6), instruction(11 downto 9), PE_out, current_state, Rf_a3);
     RegInpD3: RegisterFileInputD3 port map(t1_out, SE9spl_out, R7, t2_out, current_state, Rf_d3);
 
-		TempRegA: TempRegisterInputA port map(Rf_d1, alu_out, mem_d, current_state, t1_in, t1_write_enable);
+		TempRegA: TempRegisterInputA port map(Rf_d1, alu_out, current_state, t1_in, t1_write_enable);
 		TempRegB: TempRegisterInputB port map(Rf_d2, alu_out, mem_d, Rf_d1, current_state, t2_in, t2_write_enable);
 
 		PC: sixteenBitRegister port map(PC_in, PC_enable, clear, clock, PC_out);
-		PCInput1: PCInput port map (Rf_d1, alu_out, current_state, PC_in, pc_write);
+		PCInput1: PCInput port map (Rf_d1, alu_out, current_state, PC_in, PC_enable);
 
 		R7Input: Register7Input port map (Rf_d1, alu_out, PC_out, current_state, R7_in, R7_direct_enable);
 		Reg7Direct: sixteenBitRegister port map(R7_in, R7_direct_enable, clear, clock, R7);
@@ -302,7 +318,8 @@ architecture behave of IITB_RISC is
 		PriorityEncoderBlock: eightBitRegister port map (instruction(7 downto 0), PE_enable, clear, clock, PriorityEncoderReg); --In State2
 		PEEnableBlock : PEEnable port map (current_state, PE_enable);
 		PEBlock: PriorityEncoder port map (PriorityEncoderReg, PE_out, PE0);
-		PriorityModif : PriorityModify port map (PriorityEncoderReg, PE_out, current_state, PE_zero_enale, ModifiedPriorityReg);
+
+		PriorityModif : PriorityModify port map (PriorityEncoderReg, PE_out, current_state, PE_zero_enable, ModifiedPriorityReg);
 		Modify : eightBitRegister port map (ModifiedPriorityReg, PE_zero_enable, clear, clock, PriorityEncoderReg);
 
 		--Priority Encoder code ends here

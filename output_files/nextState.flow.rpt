@@ -1,5 +1,5 @@
 Flow report for nextState
-Fri Oct 26 19:35:09 2018
+Sat Oct 27 18:46:57 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,13 +40,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Flow Failed - Fri Oct 26 19:35:09 2018      ;
+; Flow Status           ; Successful - Sat Oct 27 18:46:57 2018       ;
 ; Quartus Prime Version ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name         ; nextState                                   ;
 ; Top-level Entity Name ; IITB_RISC                                   ;
 ; Family                ; MAX V                                       ;
 ; Device                ; 5M1270ZT144C5                               ;
 ; Timing Models         ; Final                                       ;
+; Total logic elements  ; 0 / 1,270 ( 0 % )                           ;
+; Total pins            ; 1 / 114 ( < 1 % )                           ;
+; Total virtual pins    ; 0                                           ;
+; UFM blocks            ; 0 / 1 ( 0 % )                               ;
 +-----------------------+---------------------------------------------+
 
 
@@ -55,7 +59,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2018 19:34:57 ;
+; Start date & time ; 10/27/2018 18:46:39 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; nextState           ;
 +-------------------+---------------------+
@@ -66,7 +70,7 @@ refer to the applicable agreement for further details.
 +-------------------------------+--------------------------------+---------------+-------------+----------------+
 ; Assignment Name               ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------+--------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID         ; 96760842959557.154056269708755 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID         ; 53744831553644.154064619907319 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT        ; Verilog Hdl                    ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL           ; ModelSim-Altera (Verilog)      ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                ; 1 ps                           ; --            ; --          ; eda_simulation ;
@@ -78,29 +82,41 @@ refer to the applicable agreement for further details.
 +-------------------------------+--------------------------------+---------------+-------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 932 MB              ; 00:00:32                           ;
-; Total                ; 00:00:13     ; --                      ; --                  ; 00:00:32                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 940 MB              ; 00:00:32                           ;
+; Fitter                    ; 00:00:01     ; 1.0                     ; 1069 MB             ; 00:00:01                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 788 MB              ; 00:00:00                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 695 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 1018 MB             ; 00:00:00                           ;
+; Total                     ; 00:00:16     ; --                      ; --                  ; 00:00:34                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                               ;
-+----------------------+-------------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname        ; OS Name        ; OS Version ; Processor type ;
-+----------------------+-------------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
-+----------------------+-------------------------+----------------+------------+----------------+
++----------------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                                    ;
++---------------------------+-------------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname        ; OS Name        ; OS Version ; Processor type ;
++---------------------------+-------------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; Fitter                    ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; Assembler                 ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; geekreturns-HP-Notebook ; Ubuntu 16.04.5 ; 16         ; x86_64         ;
++---------------------------+-------------------------+----------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off Project1 -c nextState
+quartus_fit --read_settings_files=off --write_settings_files=off Project1 -c nextState
+quartus_asm --read_settings_files=off --write_settings_files=off Project1 -c nextState
+quartus_sta Project1 -c nextState
+quartus_eda --read_settings_files=off --write_settings_files=off Project1 -c nextState
 
 
 

@@ -19,7 +19,7 @@ architecture behave of Register7Input is
   constant S15: STD_LOGIC_VECTOR(4 downto 0) := "10001";
 
   begin
-    process (current_state, Rf_d1, alu_out, mem_d)
+    process (current_state, Rf_d1, alu_out, PC)
     begin
       case current_state is
         when S10 =>

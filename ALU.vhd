@@ -1,19 +1,14 @@
 library ieee;
 use ieee.std_logic_1164.all;
 entity ALU is
-  port (state: IN STD_LOGIC_VECTOR(4 downto 0);
-        PC: IN STD_LOGIC_VECTOR(15 downto 0);
-        t1: IN STD_LOGIC_VECTOR(15 downto 0);
-        t2: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE6_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        SE9_op: IN STD_LOGIC_VECTOR(15 downto 0);
-        condition: IN STD_LOGIC_VECTOR(1 downto 0);
-        C_in: IN STD_LOGIC;
-        Z_in: IN STD_LOGIC;
+  port (ALU_a : IN STD_LOGIC_VECTOR(15 downto 0);
+        ALU_b : IN STD_LOGIC_VECTOR(15 downto 0);
+        operation : IN STD_LOGIC_VECTOR(2 downto 0);
 
         ALU_out: OUT STD_LOGIC_VECTOR(15 downto 0);
-        C_out: OUT STD_LOGIC;
-        Z_out: OUT STD_LOGIC
+        C_out: OUT STD_LOGIC; carry_enable: OUT STD_LOGIC;
+        Z_out: OUT STD_LOGIC; zero_enable: OUT STD_LOGIC;
+        ALU_temp_z : OUT STD_LOGIC
         );
 end ALU;
 

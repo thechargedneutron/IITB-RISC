@@ -12,7 +12,7 @@ architecture description of registerFileWriteEnable is
 		begin
 			process (Rf_a3)
 			begin
-				case Rf_a is
+				case Rf_a3 is
 	        when "000" =>
 	                R0_enable <= '1'; R1_enable <= '0'; R2_enable <= '0'; R3_enable <= '0'; R4_enable <= '0'; R5_enable <= '0'; R6_enable <= '0'; R7_enable <= '0';
 					when "001" =>

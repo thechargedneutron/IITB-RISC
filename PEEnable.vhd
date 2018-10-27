@@ -11,7 +11,7 @@ end PEEnable;
 architecture description of PEEnable is
     constant S2: STD_LOGIC_VECTOR(4 downto 0) := "00010";
 		begin
-			process (Rf_a3)
+			process (current_state)
 			begin
 				case current_state is
 	        when S2 =>

@@ -1,5 +1,9 @@
-Analysis & Synthesis Status : Failed - Fri Oct 26 19:35:09 2018
+Analysis & Synthesis Status : Successful - Sat Oct 27 18:46:52 2018
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : nextState
 Top-level Entity Name : IITB_RISC
 Family : MAX V
+Total logic elements : 0
+Total pins : 1
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -17,20 +17,20 @@ architecture behave of TempRegisterInputB is
   constant S2: STD_LOGIC_VECTOR(4 downto 0) := "00010";
   constant S31: STD_LOGIC_VECTOR(4 downto 0) := "00100";
   constant S7: STD_LOGIC_VECTOR(4 downto 0) := "01001";
-  constant S12: STD_LOGIC_VECTOR(4 downto 0) := "01110";
+	constant S71: STD_LOGIC_VECTOR(4 downto 0) := "01010";
   constant S13: STD_LOGIC_VECTOR(4 downto 0) := "01111";
 
   begin
-    process (current_state, Rf_d1, alu_out, mem_d)
+    process (current_state, Rf_d1, Rf_d2, alu_out, mem_d)
     begin
       case current_state is
         when S2 =>
                 op_data <= Rf_d2;
 								t2_write <= '1';
-				when S31 | S12 =>
+				when S31 =>
 								op_data <= alu_out;
 								t2_write <= '1';
-				when S7 =>
+				when S7 | S71 =>
 								op_data <= mem_d;
 								t2_write <= '1';
 				when S13 =>

@@ -16,7 +16,7 @@ architecture description of sixteenBitRegister is
 			process (clk, clr)
 			begin
 				if clr = '1' then
-					q <= '0';
+					q <= "0000000000000000";
 				elsif falling_edge(clk) then
 					if ld = '1' then
 						q <= d;

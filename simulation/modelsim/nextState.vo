@@ -1,23 +1,22 @@
-// Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
-// Your use of Altera Corporation's design tools, logic functions 
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
 // and other software and tools, and its AMPP partner logic 
 // functions, and any output files from any of the foregoing 
 // (including device programming or simulation files), and any 
 // associated documentation or information are expressly subject 
-// to the terms and conditions of the Altera Program License 
-// Subscription Agreement, the Altera Quartus Prime License Agreement,
-// the Altera MegaCore Function License Agreement, or other 
-// applicable license agreement, including, without limitation, 
-// that your use is for the sole purpose of programming logic 
-// devices manufactured by Altera and sold by Altera or its 
-// authorized distributors.  Please refer to the applicable 
-// agreement for further details.
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
 
 // VENDOR "Altera"
 // PROGRAM "Quartus Prime"
-// VERSION "Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition"
+// VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
-// DATE "10/24/2018 22:11:30"
+// DATE "10/27/2018 18:46:57"
 
 // 
 // Device: Altera 5M1270ZT144C5 Package TQFP144
@@ -29,17 +28,9 @@
 
 `timescale 1 ps/ 1 ps
 
-module oneBitRegister (
-	d,
-	ld,
-	clr,
-	clk,
-	q);
-input 	d;
-input 	ld;
-input 	clr;
-input 	clk;
-output 	q;
+module IITB_RISC (
+	clock);
+input 	clock;
 
 // Design Ports Information
 
@@ -55,97 +46,20 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-wire \clk~combout ;
-wire \d~combout ;
-wire \ld~combout ;
-wire \clr~combout ;
-wire \q~reg0_regout ;
-
-
-// Location: PIN_3,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-maxv_io \clk~I (
-	.datain(gnd),
-	.oe(gnd),
-	.combout(\clk~combout ),
-	.padio(clk));
 // synopsys translate_off
-defparam \clk~I .operation_mode = "input";
+initial $sdf_annotate("nextState_v.sdo");
 // synopsys translate_on
 
-// Location: PIN_2,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-maxv_io \d~I (
+
+
+// Location: PIN_32,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
+maxv_io \clock~I (
 	.datain(gnd),
 	.oe(gnd),
-	.combout(\d~combout ),
-	.padio(d));
-// synopsys translate_off
-defparam \d~I .operation_mode = "input";
-// synopsys translate_on
-
-// Location: PIN_1,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-maxv_io \ld~I (
-	.datain(gnd),
-	.oe(gnd),
-	.combout(\ld~combout ),
-	.padio(ld));
-// synopsys translate_off
-defparam \ld~I .operation_mode = "input";
-// synopsys translate_on
-
-// Location: PIN_143,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: Default
-maxv_io \clr~I (
-	.datain(gnd),
-	.oe(gnd),
-	.combout(\clr~combout ),
-	.padio(clr));
-// synopsys translate_off
-defparam \clr~I .operation_mode = "input";
-// synopsys translate_on
-
-// Location: LC_X1_Y10_N2
-maxv_lcell \q~reg0 (
-// Equation(s):
-// \q~reg0_regout  = DFFEAS(((\ld~combout  & (\d~combout )) # (!\ld~combout  & ((\q~reg0_regout )))), !\clk~combout , !\clr~combout , , , , , , )
-
-	.clk(!\clk~combout ),
-	.dataa(vcc),
-	.datab(\d~combout ),
-	.datac(\ld~combout ),
-	.datad(\q~reg0_regout ),
-	.aclr(\clr~combout ),
-	.aload(gnd),
-	.sclr(gnd),
-	.sload(gnd),
-	.ena(vcc),
-	.cin(gnd),
-	.cin0(gnd),
-	.cin1(vcc),
-	.inverta(gnd),
-	.regcascin(gnd),
-	.devclrn(devclrn),
-	.devpor(devpor),
 	.combout(),
-	.regout(\q~reg0_regout ),
-	.cout(),
-	.cout0(),
-	.cout1());
+	.padio(clock));
 // synopsys translate_off
-defparam \q~reg0 .lut_mask = "cfc0";
-defparam \q~reg0 .operation_mode = "normal";
-defparam \q~reg0 .output_mode = "reg_only";
-defparam \q~reg0 .register_cascade_mode = "off";
-defparam \q~reg0 .sum_lutc_input = "datac";
-defparam \q~reg0 .synch_mode = "off";
-// synopsys translate_on
-
-// Location: PIN_144,	 I/O Standard: 3.3-V LVTTL,	 Current Strength: 16mA
-maxv_io \q~I (
-	.datain(\q~reg0_regout ),
-	.oe(vcc),
-	.combout(),
-	.padio(q));
-// synopsys translate_off
-defparam \q~I .operation_mode = "output";
+defparam \clock~I .operation_mode = "input";
 // synopsys translate_on
 
 endmodule
