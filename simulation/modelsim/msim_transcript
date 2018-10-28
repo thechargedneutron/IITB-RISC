@@ -4,49 +4,415 @@
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Model Technology ModelSim ALTERA vmap 10.4d Lib Mapping Utility 2015.12 Dec 30 2015
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap work rtl_work 
-# Copying /home/gimmepizza/altera_lite/16.0/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Copying /home/geek-at-work/intelFPGA_lite/17.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vcom -93 -work work {/home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd}
-# Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
-# Start time: 22:12:09 on Oct 24,2018
-# vcom -reportprogress 300 -93 -work work /home/gimmepizza/Desktop/IITB-RISC/IITB-RISC/oneBitRegister.vhd 
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:26 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MemoryWrite
+# -- Compiling architecture behave of MemoryWrite
+# End time: 13:53:26 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:26 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MemoryAddressInput
+# -- Compiling architecture behave of MemoryAddressInput
+# End time: 13:53:26 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:26 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity InstructionEnable
+# -- Compiling architecture behave of InstructionEnable
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Memory
+# -- Compiling architecture behave of Memory
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ALULogic
+# -- Compiling architecture behave of ALULogic
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity fiveBitRegister
+# -- Compiling architecture description of fiveBitRegister
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TempRegisterInputB
+# -- Compiling architecture behave of TempRegisterInputB
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TempRegisterInputA
+# -- Compiling architecture behave of TempRegisterInputA
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity sixteenBitRegister
+# -- Compiling architecture description of sixteenBitRegister
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SignExtended9spl
+# -- Compiling architecture description of SignExtended9spl
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SignExtended9
+# -- Compiling architecture description of SignExtended9
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SignExtended6
+# -- Compiling architecture description of SignExtended6
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity registerFileWriteEnable
+# -- Compiling architecture description of registerFileWriteEnable
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RegisterFileInputD3
+# -- Compiling architecture behave of RegisterFileInputD3
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RegisterFileInputC
+# -- Compiling architecture behave of RegisterFileInputC
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity RegisterFileInputA
+# -- Compiling architecture behave of RegisterFileInputA
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity registerFileAccess
+# -- Compiling architecture description of registerFileAccess
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Register7Input
+# -- Compiling architecture behave of Register7Input
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PriorityEncoder
+# -- Compiling architecture behave of PriorityEncoder
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PriorityModify
+# -- Compiling architecture description of PriorityModify
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PEEnable
+# -- Compiling architecture description of PEEnable
+# End time: 13:53:27 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:27 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PCInput
+# -- Compiling architecture behave of PCInput
+# End time: 13:53:28 on Oct 28,2018, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:28 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity IITB_RISC
+# -- Compiling architecture behave of IITB_RISC
+# End time: 13:53:28 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:28 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity eightBitRegister
+# -- Compiling architecture description of eightBitRegister
+# End time: 13:53:28 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:28 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity oneBitRegister
 # -- Compiling architecture description of oneBitRegister
-# End time: 22:12:09 on Oct 24,2018, Elapsed time: 0:00:00
+# End time: 13:53:28 on Oct 28,2018, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:53:28 on Oct 28,2018
+# vcom -reportprogress 300 -93 -work work /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity NextStateFSMLogic
+# -- Compiling architecture behave of NextStateFSMLogic
+# End time: 13:53:28 on Oct 28,2018, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # 
 # stdin: <EOF>
-vsim work.onebitregister(description)
-# vsim work.onebitregister(description) 
-# Start time: 22:12:19 on Oct 24,2018
+vsim work.iitb_risc(behave)
+# vsim work.iitb_risc(behave) 
+# Start time: 13:53:33 on Oct 28,2018
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
+# Loading work.iitb_risc(behave)
+# Loading work.nextstatefsmlogic(behave)
+# Loading work.fivebitregister(description)
+# Loading ieee.numeric_std(body)
+# Loading work.memory(behave)
+# Loading work.memorywrite(behave)
+# Loading work.memoryaddressinput(behave)
+# Loading work.instructionenable(behave)
+# Loading work.sixteenbitregister(description)
 # Loading work.onebitregister(description)
+# Loading work.alulogic(behave)
+# Loading work.signextended6(description)
+# Loading work.signextended9(description)
+# Loading work.signextended9spl(description)
+# Loading work.registerfileaccess(description)
+# Loading work.registerfilewriteenable(description)
+# Loading work.registerfileinputa(behave)
+# Loading work.registerfileinputc(behave)
+# Loading work.registerfileinputd3(behave)
+# Loading work.tempregisterinputa(behave)
+# Loading work.tempregisterinputb(behave)
+# Loading work.pcinput(behave)
+# Loading work.register7input(behave)
+# Loading work.eightbitregister(description)
+# Loading work.peenable(description)
+# Loading work.priorityencoder(behave)
+# Loading work.prioritymodify(description)
 add wave -position insertpoint  \
-sim:/onebitregister/d \
-sim:/onebitregister/ld \
-sim:/onebitregister/clr \
-sim:/onebitregister/clk \
-sim:/onebitregister/q
-force -freeze sim:/onebitregister/d 1 0
-force -freeze sim:/onebitregister/ld 0 0
-force -freeze sim:/onebitregister/clr 1 0
-force -freeze sim:/onebitregister/clk 1 0, 0 {50 ps} -r 100
+sim:/iitb_risc/clock \
+sim:/iitb_risc/clear \
+sim:/iitb_risc/t1_out \
+sim:/iitb_risc/t2_out \
+sim:/iitb_risc/t1_in \
+sim:/iitb_risc/t2_in \
+sim:/iitb_risc/PC_in \
+sim:/iitb_risc/PC_out \
+sim:/iitb_risc/C_in \
+sim:/iitb_risc/C_out \
+sim:/iitb_risc/Z_in \
+sim:/iitb_risc/Z_out \
+sim:/iitb_risc/temp_z \
+sim:/iitb_risc/alu_a \
+sim:/iitb_risc/alu_b \
+sim:/iitb_risc/alu_out \
+sim:/iitb_risc/SE6_out \
+sim:/iitb_risc/SE9_out \
+sim:/iitb_risc/SE9spl_out \
+sim:/iitb_risc/instruction \
+sim:/iitb_risc/current_state \
+sim:/iitb_risc/next_state \
+sim:/iitb_risc/R0 \
+sim:/iitb_risc/R0_enable \
+sim:/iitb_risc/R1 \
+sim:/iitb_risc/R1_enable \
+sim:/iitb_risc/R2 \
+sim:/iitb_risc/R2_enable \
+sim:/iitb_risc/R3 \
+sim:/iitb_risc/R3_enable \
+sim:/iitb_risc/R4 \
+sim:/iitb_risc/R4_enable \
+sim:/iitb_risc/R5 \
+sim:/iitb_risc/R5_enable \
+sim:/iitb_risc/R6 \
+sim:/iitb_risc/R6_enable \
+sim:/iitb_risc/R7 \
+sim:/iitb_risc/R7_enable \
+sim:/iitb_risc/R7_in \
+sim:/iitb_risc/PriorityEncoderReg \
+sim:/iitb_risc/PE0 \
+sim:/iitb_risc/PE_out \
+sim:/iitb_risc/ModifiedPriorityReg \
+sim:/iitb_risc/operation \
+sim:/iitb_risc/Rf_d1 \
+sim:/iitb_risc/Rf_d2 \
+sim:/iitb_risc/Rf_d3 \
+sim:/iitb_risc/Rf_a1 \
+sim:/iitb_risc/Rf_a2 \
+sim:/iitb_risc/Rf_a3 \
+sim:/iitb_risc/mem_d \
+sim:/iitb_risc/mem_a \
+sim:/iitb_risc/mem_data_in \
+sim:/iitb_risc/carry_enable \
+sim:/iitb_risc/zero_enable \
+sim:/iitb_risc/t1_write_enable \
+sim:/iitb_risc/t2_write_enable \
+sim:/iitb_risc/PC_enable \
+sim:/iitb_risc/R7_direct_enable \
+sim:/iitb_risc/PE_enable \
+sim:/iitb_risc/PE_zero_enable \
+sim:/iitb_risc/instruction_write_enable \
+sim:/iitb_risc/memory_write_enable
+force -freeze sim:/iitb_risc/clock 1 0, 0 {50 ps} -r 100
 run
-force -freeze sim:/onebitregister/clr 0 0
-force -freeze sim:/onebitregister/ld 1 0
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /iitb_risc/mem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ps  Iteration: 2  Instance: /iitb_risc/mem
 run
 run
-force -freeze sim:/onebitregister/d 0 0
 run
-force -freeze sim:/onebitregister/ld 0 0
 run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 500 ps  Iteration: 2  Instance: /iitb_risc/mem
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 900 ps  Iteration: 2  Instance: /iitb_risc/mem
 run

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for nextState
-Sat Oct 27 18:46:52 2018
+Sun Oct 28 13:53:12 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,12 +14,8 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "ALULogic:alu"
- 10. Port Connectivity Checks: "oneBitRegister:Z"
- 11. Port Connectivity Checks: "oneBitRegister:C"
- 12. Port Connectivity Checks: "fiveBitRegister:StateChange"
- 13. Port Connectivity Checks: "NextStateFSMLogic:NxtState"
- 14. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "fiveBitRegister:StateChange"
+ 10. Analysis & Synthesis Messages
 
 
 
@@ -45,7 +41,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Oct 27 18:46:52 2018       ;
+; Analysis & Synthesis Status ; Successful - Sun Oct 28 13:53:12 2018       ;
 ; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name               ; nextState                                   ;
 ; Top-level Entity Name       ; IITB_RISC                                   ;
@@ -149,6 +145,10 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                        ; Library ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------+---------+
+; memoryWrite.vhd                  ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd         ;         ;
+; MemoryAddressInput.vhd           ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd  ;         ;
+; instructionEnable.vhd            ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd   ;         ;
+; memory.vhd                       ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd              ;         ;
 ; ALULogic.vhd                     ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd            ;         ;
 ; fiveBitRegister.vhd              ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd     ;         ;
 ; TempRegisterInputB.vhd           ; yes             ; User VHDL File  ; /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd  ;         ;
@@ -229,33 +229,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALULogic:alu"                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port       ; Type   ; Severity ; Details                                                                             ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-; alu_temp_z ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------+
-; Port Connectivity Checks: "oneBitRegister:Z" ;
-+------+-------+----------+--------------------+
-; Port ; Type  ; Severity ; Details            ;
-+------+-------+----------+--------------------+
-; d    ; Input ; Info     ; Stuck at GND       ;
-+------+-------+----------+--------------------+
-
-
-+----------------------------------------------+
-; Port Connectivity Checks: "oneBitRegister:C" ;
-+------+-------+----------+--------------------+
-; Port ; Type  ; Severity ; Details            ;
-+------+-------+----------+--------------------+
-; d    ; Input ; Info     ; Stuck at GND       ;
-+------+-------+----------+--------------------+
-
-
 +---------------------------------------------------------+
 ; Port Connectivity Checks: "fiveBitRegister:StateChange" ;
 +------+-------+----------+-------------------------------+
@@ -265,25 +238,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+-------+----------+-------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "NextStateFSMLogic:NxtState"                                                                                                                   ;
-+--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port   ; Type  ; Severity ; Details                                                                                                                                      ;
-+--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; temp_z ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Oct 27 18:46:39 2018
+    Info: Processing started: Sun Oct 28 13:52:58 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Project1 -c nextState
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file memoryWrite.vhd
+    Info (12022): Found design unit 1: MemoryWrite-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd Line: 14
+    Info (12023): Found entity 1: MemoryWrite File: /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file MemoryAddressInput.vhd
+    Info (12022): Found design unit 1: MemoryAddressInput-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd Line: 14
+    Info (12023): Found entity 1: MemoryAddressInput File: /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file instructionEnable.vhd
+    Info (12022): Found design unit 1: InstructionEnable-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd Line: 11
+    Info (12023): Found entity 1: InstructionEnable File: /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
+    Info (12022): Found design unit 1: Memory-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd Line: 15
+    Info (12023): Found entity 1: Memory File: /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ALULogic.vhd
     Info (12022): Found design unit 1: ALULogic-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd Line: 20
     Info (12023): Found entity 1: ALULogic File: /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd Line: 5
@@ -351,44 +327,41 @@ Info (12021): Found 2 design units, including 1 entities, in source file nextSta
     Info (12022): Found design unit 1: NextStateFSMLogic-behave File: /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd Line: 15
     Info (12023): Found entity 1: NextStateFSMLogic File: /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd Line: 4
 Info (12127): Elaborating entity "IITB_RISC" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at main.vhd(196): used implicit default value for signal "clear" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 196
-Warning (10540): VHDL Signal Declaration warning at main.vhd(208): used explicit default value for signal "C_in" because signal was never assigned a value File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 208
-Warning (10540): VHDL Signal Declaration warning at main.vhd(211): used explicit default value for signal "Z_in" because signal was never assigned a value File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 211
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(214): object "temp_z" assigned a value but never read File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 214
-Warning (10541): VHDL Signal Declaration warning at main.vhd(225): used implicit default value for signal "instruction" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 225
-Warning (10541): VHDL Signal Declaration warning at main.vhd(254): used implicit default value for signal "mem_d" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 254
-Info (12128): Elaborating entity "NextStateFSMLogic" for hierarchy "NextStateFSMLogic:NxtState" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 273
-Warning (10492): VHDL Process Statement warning at nextState.vhd(69): signal "temp_z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd Line: 69
-Info (12128): Elaborating entity "fiveBitRegister" for hierarchy "fiveBitRegister:StateChange" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 274
-Info (12128): Elaborating entity "oneBitRegister" for hierarchy "oneBitRegister:C" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 276
-Info (12128): Elaborating entity "sixteenBitRegister" for hierarchy "sixteenBitRegister:t1" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 279
-Info (12128): Elaborating entity "ALULogic" for hierarchy "ALULogic:alu" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 282
-Info (12128): Elaborating entity "SignExtended6" for hierarchy "SignExtended6:SE6" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 284
-Info (12128): Elaborating entity "SignExtended9" for hierarchy "SignExtended9:SE9" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 285
-Info (12128): Elaborating entity "SignExtended9spl" for hierarchy "SignExtended9spl:SE9spl" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 286
-Info (12128): Elaborating entity "registerFileAccess" for hierarchy "registerFileAccess:RF1" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 288
-Info (12128): Elaborating entity "registerFileWriteEnable" for hierarchy "registerFileWriteEnable:RegWriteEnable" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 291
-Info (12128): Elaborating entity "RegisterFileInputA" for hierarchy "RegisterFileInputA:RegInpA" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 301
-Info (12128): Elaborating entity "RegisterFileInputC" for hierarchy "RegisterFileInputC:RegInpC" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 303
-Info (12128): Elaborating entity "RegisterFileInputD3" for hierarchy "RegisterFileInputD3:RegInpD3" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 304
-Info (12128): Elaborating entity "TempRegisterInputA" for hierarchy "TempRegisterInputA:TempRegA" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 306
-Info (12128): Elaborating entity "TempRegisterInputB" for hierarchy "TempRegisterInputB:TempRegB" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 307
-Info (12128): Elaborating entity "PCInput" for hierarchy "PCInput:PCInput1" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 310
-Info (12128): Elaborating entity "Register7Input" for hierarchy "Register7Input:R7Input" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 312
-Info (12128): Elaborating entity "eightBitRegister" for hierarchy "eightBitRegister:PriorityEncoderBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 318
-Info (12128): Elaborating entity "PEEnable" for hierarchy "PEEnable:PEEnableBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 319
-Info (12128): Elaborating entity "PriorityEncoder" for hierarchy "PriorityEncoder:PEBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 320
-Info (12128): Elaborating entity "PriorityModify" for hierarchy "PriorityModify:PriorityModif" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 322
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10541): VHDL Signal Declaration warning at main.vhd(231): used implicit default value for signal "clear" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 231
+Info (12128): Elaborating entity "NextStateFSMLogic" for hierarchy "NextStateFSMLogic:NxtState" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 311
+Info (12128): Elaborating entity "fiveBitRegister" for hierarchy "fiveBitRegister:StateChange" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 312
+Info (12128): Elaborating entity "Memory" for hierarchy "Memory:mem" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 314
+Info (12128): Elaborating entity "MemoryWrite" for hierarchy "MemoryWrite:mem_write" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 315
+Info (12128): Elaborating entity "MemoryAddressInput" for hierarchy "MemoryAddressInput:mem_add_mux" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 316
+Info (12128): Elaborating entity "InstructionEnable" for hierarchy "InstructionEnable:get_ir_enable" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 317
+Info (12128): Elaborating entity "sixteenBitRegister" for hierarchy "sixteenBitRegister:get_ir" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 318
+Info (12128): Elaborating entity "oneBitRegister" for hierarchy "oneBitRegister:C" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 320
+Info (12128): Elaborating entity "ALULogic" for hierarchy "ALULogic:alu" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 326
+Info (12128): Elaborating entity "SignExtended6" for hierarchy "SignExtended6:SE6" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 328
+Info (12128): Elaborating entity "SignExtended9" for hierarchy "SignExtended9:SE9" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 329
+Info (12128): Elaborating entity "SignExtended9spl" for hierarchy "SignExtended9spl:SE9spl" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 330
+Info (12128): Elaborating entity "registerFileAccess" for hierarchy "registerFileAccess:RF1" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 332
+Info (12128): Elaborating entity "registerFileWriteEnable" for hierarchy "registerFileWriteEnable:RegWriteEnable" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 335
+Info (12128): Elaborating entity "RegisterFileInputA" for hierarchy "RegisterFileInputA:RegInpA" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 345
+Info (12128): Elaborating entity "RegisterFileInputC" for hierarchy "RegisterFileInputC:RegInpC" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 347
+Info (12128): Elaborating entity "RegisterFileInputD3" for hierarchy "RegisterFileInputD3:RegInpD3" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 348
+Info (12128): Elaborating entity "TempRegisterInputA" for hierarchy "TempRegisterInputA:TempRegA" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 350
+Info (12128): Elaborating entity "TempRegisterInputB" for hierarchy "TempRegisterInputB:TempRegB" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 351
+Info (12128): Elaborating entity "PCInput" for hierarchy "PCInput:PCInput1" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 354
+Info (12128): Elaborating entity "Register7Input" for hierarchy "Register7Input:R7Input" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 356
+Info (12128): Elaborating entity "eightBitRegister" for hierarchy "eightBitRegister:PriorityEncoderBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 362
+Info (12128): Elaborating entity "PEEnable" for hierarchy "PEEnable:PEEnableBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 363
+Info (12128): Elaborating entity "PriorityEncoder" for hierarchy "PriorityEncoder:PEBlock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 364
+Info (12128): Elaborating entity "PriorityModify" for hierarchy "PriorityModify:PriorityModif" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 366
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clock" File: /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd Line: 5
 Info (21057): Implemented 1 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 940 megabytes
-    Info: Processing ended: Sat Oct 27 18:46:52 2018
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:32
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 936 megabytes
+    Info: Processing ended: Sun Oct 28 13:53:12 2018
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:33
 
 

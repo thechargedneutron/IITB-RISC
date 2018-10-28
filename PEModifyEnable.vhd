@@ -14,11 +14,12 @@ end PriorityModify;
 
 architecture description of PriorityModify is
     constant S12: STD_LOGIC_VECTOR(4 downto 0) := "01110";
+		constant S13: STD_LOGIC_VECTOR(4 downto 0) := "01111";
 		begin
 			process (PriorityEncoderReg, PE_out, current_state)
 			begin
 				case current_state is
-					when S12 =>
+					when S12 | S13 =>
 							if PE_out = "000" then
 								ModifiedPriorityReg(7 downto 1) <= PriorityEncoderReg(7 downto 1);
 								ModifiedPriorityReg(0) <= '0';

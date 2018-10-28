@@ -30,6 +30,8 @@ architecture description of registerFileAccess is
 	                Rf_d <= R6;
 					when "111" =>
 	                Rf_d <= R7;
+					when others =>
+									Rf_d <= R0;
 	      end case;
 			end process;
 end description;

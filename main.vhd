@@ -13,6 +13,7 @@ architecture behave of IITB_RISC is
         op_code: IN STD_LOGIC_VECTOR(3 downto 0);
         condition: IN STD_LOGIC_VECTOR(1 downto 0);
         C, Z: IN STD_LOGIC;
+				temp_z : IN STD_LOGIC;
         PE0: IN STD_LOGIC;
 
         next_state: OUT STD_LOGIC_VECTOR(4 downto 0));
@@ -31,6 +32,40 @@ architecture behave of IITB_RISC is
         C_out: OUT STD_LOGIC; carry_enable: OUT STD_LOGIC;
         Z_out: OUT STD_LOGIC; zero_enable: OUT STD_LOGIC;
         ALU_temp_z : OUT STD_LOGIC);
+	end component;
+
+	component Memory is
+	  port (addr: IN STD_LOGIC_VECTOR(15 downto 0);
+	        din: IN STD_LOGIC_VECTOR(15 downto 0);
+			    we: IN STD_LOGIC;
+	        clk: IN STD_LOGIC;
+
+	        dout: OUT STD_LOGIC_VECTOR(15 downto 0)
+			  );
+	end component;
+
+	component MemoryAddressInput is
+	port (t1 : IN STD_LOGIC_VECTOR(15 downto 0);
+				PC : IN STD_LOGIC_VECTOR(15 downto 0);
+				t2 : IN STD_LOGIC_VECTOR(15 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				op : OUT STD_LOGIC_VECTOR(15 downto 0));
+	end component;
+
+	component MemoryWrite is
+	port (t1 : IN STD_LOGIC_VECTOR(15 downto 0);
+				t2 : IN STD_LOGIC_VECTOR(15 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				op_val : OUT STD_LOGIC_VECTOR(15 downto 0);
+				op_enable : OUT STD_LOGIC);
+	end component;
+
+	component InstructionEnable is
+	port (current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+
+				op : OUT STD_LOGIC);
 	end component;
 
   component sixteenBitRegister is
@@ -203,13 +238,13 @@ end component;
     signal t2_in : STD_LOGIC_VECTOR(15 downto 0);
 
 		signal PC_in : STD_LOGIC_VECTOR(15 downto 0);
-		signal PC_out : STD_LOGIC_VECTOR(15 downto 0);
+		signal PC_out : STD_LOGIC_VECTOR(15 downto 0):=x"0000";
 
-    signal C_in : STD_LOGIC := '0';
-    signal C_out : STD_LOGIC := '0';
+    signal C_in : STD_LOGIC;
+    signal C_out : STD_LOGIC;
 
-    signal Z_in : STD_LOGIC := '0';
-    signal Z_out : STD_LOGIC := '0';
+    signal Z_in : STD_LOGIC;
+    signal Z_out : STD_LOGIC;
 
 		signal temp_z : STD_LOGIC; --For BEQ
 
@@ -223,7 +258,7 @@ end component;
     signal SE9spl_out : STD_LOGIC_VECTOR(15 downto 0);
 
     signal instruction : STD_LOGIC_VECTOR(15 downto 0);
-    signal current_state : STD_LOGIC_VECTOR(4 downto 0);
+    signal current_state : STD_LOGIC_VECTOR(4 downto 0) := "00001";
 		signal next_state : STD_LOGIC_VECTOR(4 downto 0);
 
     --Registers
@@ -253,6 +288,7 @@ end component;
 
 		signal mem_d : STD_LOGIC_VECTOR(15 downto 0);
 		signal mem_a : STD_LOGIC_VECTOR(15 downto 0);
+		signal mem_data_in : STD_LOGIC_VECTOR(15 downto 0);
 
     ----------CONTROL SIGNALS ---------------------
     signal carry_enable : STD_LOGIC;
@@ -263,6 +299,8 @@ end component;
 		signal R7_direct_enable : STD_LOGIC;
 		signal PE_enable : STD_LOGIC;
 		signal PE_zero_enable : STD_LOGIC;  --Make the just read register 0.
+		signal instruction_write_enable : STD_LOGIC;
+		signal memory_write_enable : STD_LOGIC;
     ---MORE TO COME
     ---------END CONTROL SIGNALS-------------------
 
@@ -270,8 +308,14 @@ end component;
     ----------REGISTER PORT MAPPINGS---------------
 
 		--Next State Transition
-		NxtState : NextStateFSMLogic port map(current_state, instruction(15 downto 12), instruction(1 downto 0), C_out, Z_out, PE0, next_state);
+		NxtState : NextStateFSMLogic port map(current_state, instruction(15 downto 12), instruction(1 downto 0), C_out, Z_out, temp_z, PE0, next_state);
 		StateChange: fiveBitRegister port map(next_state, '1', clear, clock, current_state); --State Transition
+
+		mem: Memory port map (mem_a, mem_data_in, memory_write_enable, clock, mem_d);
+		mem_write: MemoryWrite port map (t1_out, t2_out, current_state, mem_data_in, memory_write_enable);
+		mem_add_mux: MemoryAddressInput port map (t1_out, PC_out, t2_out, current_state, mem_a);
+		get_ir_enable: InstructionEnable port map (current_state, instruction_write_enable);
+		get_ir: sixteenBitRegister port map (mem_d, instruction_write_enable, clear, clock, instruction);
 
     C: oneBitRegister port map(C_in, carry_enable, clear, clock, C_out);
     Z: oneBitRegister port map(Z_in, zero_enable, clear, clock, Z_out);
@@ -279,7 +323,7 @@ end component;
     t1: sixteenBitRegister port map(t1_in, t1_write_enable, clear, clock, t1_out);
     t2: sixteenBitRegister port map(t2_in, t2_write_enable, clear, clock, t2_out);
 
-		alu: ALULogic port map (current_state, instruction(15 downto 12), PC_out, t1_out, t2_out, SE6_out, SE9_out, ALU_out, C_out, carry_enable, Z_out, zero_enable, temp_z);
+		alu: ALULogic port map (current_state, instruction(15 downto 12), PC_out, t1_out, t2_out, SE6_out, SE9_out, ALU_out, C_in, carry_enable, Z_in, zero_enable, temp_z);
 
     SE6: SignExtended6 port map(instruction(5 downto 0), SE6_out);
     SE9: SignExtended9 port map(instruction(8 downto 0), SE9_out);

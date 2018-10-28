@@ -17,7 +17,7 @@ architecture description of fiveBitRegister is
 			begin
 				if clr = '1' then
 					q <= "00000";
-				elsif falling_edge(clk) then
+				elsif rising_edge(clk) then
 					if ld = '1' then
 						q <= d;
 					end if;

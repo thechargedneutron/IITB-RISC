@@ -1,4 +1,8 @@
 vendor_name = ModelSim
+source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd
+source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd
+source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd
+source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd
 source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd
 source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd
 source_file = 1, /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd

@@ -17,11 +17,10 @@ architecture description of oneBitRegister is
 			begin
 				if clr = '1' then
 					q <= '0';
-				elsif falling_edge(clk) then
+				elsif rising_edge(clk) then
 					if ld = '1' then
 						q <= d;
 					end if;
 					end if;
 			end process;
 end description;
-		

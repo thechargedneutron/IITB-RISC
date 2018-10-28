@@ -33,7 +33,7 @@ architecture behave of NextStateFSMLogic is
   constant SZ: STD_LOGIC_VECTOR(4 downto 0) := "10010";
 
   begin
-    process (current_state, op_code, C, Z, condition, PE0) --many more
+    process (current_state, op_code, C, Z, condition, PE0, temp_z) --many more
     begin
       case current_state is
         when S1 =>
