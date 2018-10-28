@@ -5,6 +5,7 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
+vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd}
 vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd}
 vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd}
 vcom -93 -work work {/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd}

@@ -13,6 +13,7 @@ entity NextStateFSMLogic is
 end NextStateFSMLogic;
 
 architecture behave of NextStateFSMLogic is
+  constant S0: STD_LOGIC_VECTOR(4 downto 0) := "00000";
   constant S1: STD_LOGIC_VECTOR(4 downto 0) := "00001";
   constant S2: STD_LOGIC_VECTOR(4 downto 0) := "00010";
   constant S3: STD_LOGIC_VECTOR(4 downto 0) := "00011";
@@ -36,6 +37,8 @@ architecture behave of NextStateFSMLogic is
     process (current_state, op_code, C, Z, condition, PE0, temp_z) --many more
     begin
       case current_state is
+        when S0 =>
+                next_state <= S1;
         when S1 =>
                 next_state <= S2;
         when S2 =>

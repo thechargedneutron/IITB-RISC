@@ -68,6 +68,12 @@ architecture behave of IITB_RISC is
 				op : OUT STD_LOGIC);
 	end component;
 
+	component ResetState is
+	port (current_state : IN STD_LOGIC_VECTOR(4 downto 0);
+        clear_enable : OUT STD_LOGIC
+        );
+	end component;
+
   component sixteenBitRegister is
   	port (d : IN STD_LOGIC_VECTOR(15 downto 0);
   				ld : IN STD_LOGIC;
@@ -248,9 +254,6 @@ end component;
 
 		signal temp_z : STD_LOGIC; --For BEQ
 
-    signal alu_a : STD_LOGIC_VECTOR(15 downto 0);
-    signal alu_b : STD_LOGIC_VECTOR(15 downto 0);
-
     signal alu_out : STD_LOGIC_VECTOR(15 downto 0);
 
     signal SE6_out : STD_LOGIC_VECTOR(15 downto 0);
@@ -258,7 +261,7 @@ end component;
     signal SE9spl_out : STD_LOGIC_VECTOR(15 downto 0);
 
     signal instruction : STD_LOGIC_VECTOR(15 downto 0);
-    signal current_state : STD_LOGIC_VECTOR(4 downto 0) := "00001";
+    signal current_state : STD_LOGIC_VECTOR(4 downto 0) := "00000";
 		signal next_state : STD_LOGIC_VECTOR(4 downto 0);
 
     --Registers
@@ -276,8 +279,6 @@ end component;
 		signal PE0 : STD_LOGIC;
 		signal PE_out : STD_LOGIC_VECTOR(2 downto 0);
 		signal ModifiedPriorityReg : STD_LOGIC_VECTOR(7 downto 0);
-
-		signal operation : STD_LOGIC_VECTOR(2 downto 0);
 
     signal Rf_d1 : STD_LOGIC_VECTOR(15 downto 0);
     signal Rf_d2 : STD_LOGIC_VECTOR(15 downto 0);
@@ -309,7 +310,9 @@ end component;
 
 		--Next State Transition
 		NxtState : NextStateFSMLogic port map(current_state, instruction(15 downto 12), instruction(1 downto 0), C_out, Z_out, temp_z, PE0, next_state);
-		StateChange: fiveBitRegister port map(next_state, '1', clear, clock, current_state); --State Transition
+		StateChange: fiveBitRegister port map(next_state, '1', '0', clock, current_state); --State Transition
+
+		init: ResetState port map (current_state, clear);
 
 		mem: Memory port map (mem_a, mem_data_in, memory_write_enable, clock, mem_d);
 		mem_write: MemoryWrite port map (t1_out, t2_out, current_state, mem_data_in, memory_write_enable);

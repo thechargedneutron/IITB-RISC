@@ -6,7 +6,7 @@ entity Memory is
         din: IN STD_LOGIC_VECTOR(15 downto 0);
 		    we: IN STD_LOGIC;
         clk: IN STD_LOGIC;
-        
+
         dout: OUT STD_LOGIC_VECTOR(15 downto 0)
 		  );
 end Memory;
@@ -15,7 +15,7 @@ end Memory;
 architecture behave of Memory is
 type mem_array is array	(0	to 2**7 -1) of
 	std_logic_vector(15 downto 0);
-signal RAM:	mem_array:= (x"0000", x"2000", x"1000", x"4000", x"5000", others => x"0000");
+signal RAM:	mem_array:= (x"2000", x"2000", x"1000", x"4000", x"5000", others => x"0000");
 
 begin
 process(clk)
