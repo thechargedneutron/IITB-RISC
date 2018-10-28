@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/geek-at-work/Desktop/EE-309-Project-1/simulation/modelsim
 Ealulogic
-Z1 w1540644149
+Z1 w1540728767
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ V3?fAjcP79YfX^GHJe8_5Q0
 !s100 n2izW[Kdh^mOG>kRIih@E0
 Z7 OV;C;10.5b;63
 31
-Z8 !s110 1540721074
+Z8 !s110 1540735983
 !i10b 1
-Z9 !s108 1540721074.000000
+Z9 !s108 1540735983.000000
 Z10 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd|
 Z11 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/ALULogic.vhd|
 !i113 1
@@ -35,10 +35,10 @@ R2
 R3
 R4
 DEx4 work 8 alulogic 0 22 3?fAjcP79YfX^GHJe8_5Q0
-l33
+l32
 L20
-V3FeFBCgRlj6^XXoNKO>f=2
-!s100 Lj;c@[2B<fW94iUHX]mz82
+VmOgGh98^H2QB@;klC^RA53
+!s100 Oa8PZ]PjfE<?djZE;0A`Y2
 R7
 31
 R8
@@ -49,52 +49,91 @@ R11
 !i113 1
 R12
 R13
-Eeightbitregister
-Z14 w1540709608
+Econditionaleightbitregister
+Z14 w1540726144
 R3
 R4
 R0
-Z15 8/home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd
-Z16 F/home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd
+Z15 8/home/geek-at-work/Desktop/EE-309-Project-1/conditionalEightBitRegister.vhd
+Z16 F/home/geek-at-work/Desktop/EE-309-Project-1/conditionalEightBitRegister.vhd
 l0
 L4
-VoU_TVS8AAl>8n]T?H8l4e1
-!s100 WZkQo0OOlWIWEZUj?QJZH3
+V__=NQZNA?o_W7UgXjT5aA0
+!s100 3?bCB;CgTnUc>37h]8Pb<2
 R7
 31
-Z17 !s110 1540721075
+R8
 !i10b 1
-Z18 !s108 1540721075.000000
-Z19 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd|
-Z20 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/eightBitRegister.vhd|
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/conditionalEightBitRegister.vhd|
+Z18 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/conditionalEightBitRegister.vhd|
 !i113 1
 R12
 R13
 Adescription
 R3
 R4
-DEx4 work 16 eightbitregister 0 22 oU_TVS8AAl>8n]T?H8l4e1
-l15
-L14
-VHToS@Qo5NIQjgIezd8cm13
-!s100 Yz]i`>dL?ngaO1[4M:mJI0
+DEx4 work 27 conditionaleightbitregister 0 22 __=NQZNA?o_W7UgXjT5aA0
+l17
+L16
+V6HZ`aO_lMJ[Co2d@_iR:X0
+!s100 [dPaM]D2gMcFhZ?U3QJIK3
 R7
 31
-R17
+R8
 !i10b 1
+R9
+R17
 R18
-R19
-R20
+!i113 1
+R12
+R13
+Econditionalsixteenbitregister
+Z19 w1540725108
+R3
+R4
+R0
+Z20 8/home/geek-at-work/Desktop/EE-309-Project-1/conditionalSixteenBitRegister.vhd
+Z21 F/home/geek-at-work/Desktop/EE-309-Project-1/conditionalSixteenBitRegister.vhd
+l0
+L4
+VE>GI8A61d7_L7@HKS`CD:1
+!s100 oSf3MO0`mOYJYfzB1G5KY2
+R7
+31
+Z22 !s110 1540735982
+!i10b 1
+Z23 !s108 1540735982.000000
+Z24 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/conditionalSixteenBitRegister.vhd|
+Z25 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/conditionalSixteenBitRegister.vhd|
+!i113 1
+R12
+R13
+Adescription
+R3
+R4
+DEx4 work 29 conditionalsixteenbitregister 0 22 E>GI8A61d7_L7@HKS`CD:1
+l17
+L16
+VC1AnHm>cL1<FZKU1F=idN0
+!s100 N2WA;jLXRKC6O<8d`OS0k0
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
 !i113 1
 R12
 R13
 Efivebitregister
-Z21 w1540709618
+Z26 w1540709618
 R3
 R4
 R0
-Z22 8/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd
-Z23 F/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd
+Z27 8/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd
+Z28 F/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd
 l0
 L4
 V6<:>g6c];IjNi=a:DzYkj3
@@ -104,8 +143,8 @@ R7
 R8
 !i10b 1
 R9
-Z24 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd|
-Z25 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd|
+Z29 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd|
+Z30 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/fiveBitRegister.vhd|
 !i113 1
 R12
 R13
@@ -122,29 +161,29 @@ R7
 R8
 !i10b 1
 R9
-R24
-R25
+R29
+R30
 !i113 1
 R12
 R13
 Eiitb_risc
-Z26 w1540720074
+Z31 w1540733277
 R3
 R4
 R0
-Z27 8/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd
-Z28 F/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd
+Z32 8/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd
+Z33 F/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd
 l0
 L4
 VglMGQFfa8IO:Nfo4PM;X@2
 !s100 9^7eHTe5WfffYgYe_aK1X1
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z29 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd|
-Z30 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd|
+R9
+Z34 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/main.vhd|
+Z35 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/main.vhd|
 !i113 1
 R12
 R13
@@ -152,38 +191,38 @@ Abehave
 R3
 R4
 DEx4 work 9 iitb_risc 0 22 glMGQFfa8IO:Nfo4PM;X@2
-l308
+l331
 L9
-Va3fF:<]cQ15_BnLnkVjRT3
-!s100 `2i>5YZ3AI]MbGJ9OzF`K3
+VjeNoW3n^TYkb6i5[7P2833
+!s100 PfOB4G_RejR6Sl>OFN]^M3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R29
-R30
+R9
+R34
+R35
 !i113 1
 R12
 R13
 Einstructionenable
-Z31 w1540706394
+Z36 w1540706394
 R3
 R4
 R0
-Z32 8/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd
-Z33 F/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd
+Z37 8/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd
+Z38 F/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd
 l0
 L4
 V06eoWJ94:cknIcQX4>EK81
 !s100 MzEEaAV8hj3bRLM_jam6]3
 R7
 31
-R8
+R22
 !i10b 1
-R9
-Z34 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd|
-Z35 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd|
+R23
+Z39 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd|
+Z40 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/instructionEnable.vhd|
 !i113 1
 R12
 R13
@@ -197,22 +236,22 @@ V21j:;[4J98UFP:FJKn3FS3
 !s100 e:mMB=LYXCCLKWFM9oUkI3
 R7
 31
-R8
+R22
 !i10b 1
-R9
-R34
-R35
+R23
+R39
+R40
 !i113 1
 R12
 R13
 Ememory
-Z36 w1540720664
+Z41 w1540731466
 R2
 R3
 R4
 R0
-Z37 8/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd
-Z38 F/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd
+Z42 8/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd
+Z43 F/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd
 l0
 L4
 VKRX8]C98Pnihkc8?Sah@l0
@@ -221,9 +260,9 @@ R7
 31
 R8
 !i10b 1
-R9
-Z39 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd|
-Z40 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd|
+R23
+Z44 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd|
+Z45 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/memory.vhd|
 !i113 1
 R12
 R13
@@ -234,36 +273,36 @@ R4
 DEx4 work 6 memory 0 22 KRX8]C98Pnihkc8?Sah@l0
 l20
 L15
-V<gRYW=@^A:>]Gi;8M1ZaH2
-!s100 i9EQd]QCfP@ZdGU`LVdo?1
+VOKb7=7T4mA;GdchaT3o0]1
+!s100 ^bFV5I0kPEOngioQ8`6@Y0
 R7
 31
 R8
 !i10b 1
-R9
-R39
-R40
+R23
+R44
+R45
 !i113 1
 R12
 R13
 Ememoryaddressinput
-Z41 w1540706375
+Z46 w1540706375
 R3
 R4
 R0
-Z42 8/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd
-Z43 F/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd
+Z47 8/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd
+Z48 F/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd
 l0
 L4
 V?F0A5]X8T>W]TMRci_bho0
 !s100 lIg6XmHV?@bc;^cMN8UV30
 R7
 31
-R8
+R22
 !i10b 1
-R9
-Z44 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd|
-Z45 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd|
+R23
+Z49 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd|
+Z50 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/MemoryAddressInput.vhd|
 !i113 1
 R12
 R13
@@ -277,32 +316,32 @@ VbZ:4?[z8lBR0nIEb97lGK1
 !s100 EIKS0W_^FC0nFbZ5]IMMg3
 R7
 31
-R8
+R22
 !i10b 1
-R9
-R44
-R45
+R23
+R49
+R50
 !i113 1
 R12
 R13
 Ememorywrite
-Z46 w1540709276
+Z51 w1540709276
 R3
 R4
 R0
-Z47 8/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd
-Z48 F/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd
+Z52 8/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd
+Z53 F/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd
 l0
 L4
 VZ7l][CYCP5CAfLmBmGPVc1
 !s100 ;QX05k46aQaJ2WPn2C5g22
 R7
 31
-R8
+R22
 !i10b 1
-R9
-Z49 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd|
-Z50 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd|
+R23
+Z54 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd|
+Z55 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/memoryWrite.vhd|
 !i113 1
 R12
 R13
@@ -316,32 +355,32 @@ VJYjD[[7XLIhH=?HSb]MZF3
 !s100 YG:9f1DEV==2]g5[RhjnZ2
 R7
 31
-R8
+R22
 !i10b 1
-R9
-R49
-R50
+R23
+R54
+R55
 !i113 1
 R12
 R13
 Enextstatefsmlogic
-Z51 w1540718861
+Z56 w1540718861
 R3
 R4
 R0
-Z52 8/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
-Z53 F/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
+Z57 8/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
+Z58 F/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd
 l0
 L4
 VHRJUWP5WVXK:VzSQ0RV<B3
 !s100 _i]gKcI6646bmACm66gjC3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z54 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
-Z55 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
+R9
+Z59 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
+Z60 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/nextState.vhd|
 !i113 1
 R12
 R13
@@ -355,32 +394,32 @@ VEURYTKY0ckzQ7_eQK]:^T3
 !s100 AaXiP]b93ZDHX64H6DHf=2
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R54
-R55
+R9
+R59
+R60
 !i113 1
 R12
 R13
 Eonebitregister
-Z56 w1540709628
+Z61 w1540709628
 R3
 R4
 R0
-Z57 8/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd
-Z58 F/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd
+Z62 8/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd
+Z63 F/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd
 l0
 L4
 VeH_HeEEJn0;8X?WfM`cZ<1
 !s100 m>jU1ZG:SOSo3II;JIV[b0
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z59 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd|
-Z60 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd|
+R9
+Z64 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd|
+Z65 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/oneBitRegister.vhd|
 !i113 1
 R12
 R13
@@ -394,32 +433,32 @@ V;C1`78Xgg6o8;]a9FHgHN0
 !s100 `CC;NmShG4QO5mYzPEdj02
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R59
-R60
+R9
+R64
+R65
 !i113 1
 R12
 R13
 Epcinput
-Z61 w1540535973
+Z66 w1540724923
 R3
 R4
 R0
-Z62 8/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd
-Z63 F/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd
+Z67 8/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd
+Z68 F/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd
 l0
 L4
 VLdDbZ=aFcXdOYTF23;lcb3
 !s100 GQ]SPzW@N0FVed@lO^L>:3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z64 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd|
-Z65 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd|
+R9
+Z69 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd|
+Z70 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PCinput.vhd|
 !i113 1
 R12
 R13
@@ -433,32 +472,32 @@ VkfKa8midk73RU=hDX:ZeD2
 !s100 <ZhXT[9oT^z:YUii7`_F:3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R64
-R65
+R9
+R69
+R70
 !i113 1
 R12
 R13
 Epeenable
-Z66 w1540565495
+Z71 w1540565495
 R3
 R4
 R0
-Z67 8/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd
-Z68 F/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd
+Z72 8/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd
+Z73 F/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd
 l0
 L4
 VLMa>WA4BRf6f[A:Z=VF091
 !s100 F3aj[Skiaz1RCl2:lJfNm3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z69 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd|
-Z70 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd|
+R9
+Z74 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd|
+Z75 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PEEnable.vhd|
 !i113 1
 R12
 R13
@@ -472,32 +511,32 @@ VY96A:TIB=9i6ei5O9A0AM0
 !s100 :G=:S4cQ]2@E023TJA1521
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R69
-R70
+R9
+R74
+R75
 !i113 1
 R12
 R13
 Epriorityencoder
-Z71 w1540565680
+Z76 w1540565680
 R3
 R4
 R0
-Z72 8/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd
-Z73 F/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd
+Z77 8/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd
+Z78 F/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd
 l0
 L4
 V<3Zl^`^lOQ3c`fO1nPSC:3
 !s100 S]AlERi5;gLmT[I=o1W=Z0
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z74 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd|
-Z75 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd|
+R9
+Z79 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd|
+Z80 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PriorityEncoder.vhd|
 !i113 1
 R12
 R13
@@ -511,32 +550,32 @@ VmnNBf>0k:cWe9TcSR9]Qz1
 !s100 ji3T2TzE]0[0hlUCFIGT:0
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R74
-R75
+R9
+R79
+R80
 !i113 1
 R12
 R13
 Eprioritymodify
-Z76 w1540659351
+Z81 w1540659351
 R3
 R4
 R0
-Z77 8/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd
-Z78 F/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd
+Z82 8/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd
+Z83 F/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd
 l0
 L4
 VeKdXPM2;]`HKF2jn51o8a2
 !s100 G1>XmnmAg7F9OGS`nKo[`0
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z79 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd|
-Z80 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd|
+R9
+Z84 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd|
+Z85 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/PEModifyEnable.vhd|
 !i113 1
 R12
 R13
@@ -550,32 +589,32 @@ VYK05Mbb?F`9>_^8XQ=;W=2
 !s100 @o_>i`T0TMjDe7mjj;oSf3
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R79
-R80
+R9
+R84
+R85
 !i113 1
 R12
 R13
 Eregister7input
-Z81 w1540565273
+Z86 w1540565273
 R3
 R4
 R0
-Z82 8/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd
-Z83 F/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd
+Z87 8/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd
+Z88 F/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd
 l0
 L4
 Vm=0:cOC9QheESGjiQgX7;3
 !s100 AhB9<bMUF:Q@f[RM4NfRj0
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z84 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd|
-Z85 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd|
+R9
+Z89 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd|
+Z90 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/Register7Input.vhd|
 !i113 1
 R12
 R13
@@ -589,32 +628,32 @@ VOi?]71>9GC0Cj[Kg7=3YG0
 !s100 DV;Kh^h7lzY9<XX5C4mZ80
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R84
-R85
+R9
+R89
+R90
 !i113 1
 R12
 R13
 Eregisterfileaccess
-Z86 w1540714839
+Z91 w1540714839
 R3
 R4
 R0
-Z87 8/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd
-Z88 F/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd
+Z92 8/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd
+Z93 F/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd
 l0
 L4
 V6^<]dJG4`NKhz;eAcWW8I0
 !s100 mA4N3KIG95IoZnEWa<zS42
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z89 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd|
-Z90 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd|
+R9
+Z94 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd|
+Z95 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/registerFileAccess.vhd|
 !i113 1
 R12
 R13
@@ -628,32 +667,32 @@ V_k7hZ]@_`I]Y4NZ?0TcGC2
 !s100 K]5NUS058QBG=7MF7dZ[10
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R89
-R90
+R9
+R94
+R95
 !i113 1
 R12
 R13
 Eregisterfileinputa
-Z91 w1540491667
+Z96 w1540491667
 R3
 R4
 R0
-Z92 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd
-Z93 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd
+Z97 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd
+Z98 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd
 l0
 L4
 VKRj^jm=TFA0aPbWlF9jB<3
 !s100 N6BdlJA8R@FDO1F8z:Y:X2
 R7
 31
-R17
+R8
 !i10b 1
-R18
-Z94 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd|
-Z95 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd|
+R9
+Z99 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd|
+Z100 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputA.vhd|
 !i113 1
 R12
 R13
@@ -667,32 +706,32 @@ Vo7;b6abI0>KGCoH]0e2od3
 !s100 T@RmoHNZgeU;_GoZV>EFS2
 R7
 31
-R17
+R8
 !i10b 1
-R18
-R94
-R95
+R9
+R99
+R100
 !i113 1
 R12
 R13
 Eregisterfileinputc
-Z96 w1540493118
+Z101 w1540493118
 R3
 R4
 R0
-Z97 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd
-Z98 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd
+Z102 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd
+Z103 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd
 l0
 L4
 VdhHJ<Q;U3o__=kzcT28nF1
 !s100 kdd^fT53Yg[H>@8F8YPDG3
 R7
 31
-R17
+R8
 !i10b 1
 R9
-Z99 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd|
-Z100 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd|
+Z104 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd|
+Z105 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputC.vhd|
 !i113 1
 R12
 R13
@@ -706,21 +745,21 @@ V`F2;Xg2ki:em<AUHTF]K@0
 !s100 jW:M=[aUCK9S7Rki`oDfF3
 R7
 31
-R17
+R8
 !i10b 1
 R9
-R99
-R100
+R104
+R105
 !i113 1
 R12
 R13
 Eregisterfileinputd3
-Z101 w1540644223
+Z106 w1540644223
 R3
 R4
 R0
-Z102 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd
-Z103 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd
+Z107 8/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd
+Z108 F/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd
 l0
 L4
 V3Zm8m;:WGLVlI]kMEMW1R0
@@ -730,8 +769,8 @@ R7
 R8
 !i10b 1
 R9
-Z104 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd|
-Z105 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd|
+Z109 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd|
+Z110 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/RegisterFileInputD3.vhd|
 !i113 1
 R12
 R13
@@ -748,68 +787,68 @@ R7
 R8
 !i10b 1
 R9
-R104
-R105
+R109
+R110
 !i113 1
 R12
 R13
 Eregisterfilewriteenable
-Z106 w1540714659
+Z111 w1540733046
 R3
 R4
 R0
-Z107 8/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd
-Z108 F/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd
+Z112 8/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd
+Z113 F/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd
 l0
 L4
-V=cf:Il;o:@YInYiljf^0m3
-!s100 VXjhm=f5ZNzOKAI2JLR1n2
+VDj1l22mWND<HA0Page>==2
+!s100 e25MdXbA12ojCiR@8>hgz1
 R7
 31
 R8
 !i10b 1
 R9
-Z109 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd|
-Z110 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd|
+Z114 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd|
+Z115 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/registerFileWrite.vhd|
 !i113 1
 R12
 R13
 Adescription
 R3
 R4
-DEx4 work 23 registerfilewriteenable 0 22 =cf:Il;o:@YInYiljf^0m3
-l12
-L11
-VODi@C43;4iCnkE]ThYUkn3
-!s100 6OO@5<3keJ`LFVUTFn_W63
+DEx4 work 23 registerfilewriteenable 0 22 Dj1l22mWND<HA0Page>==2
+l21
+L12
+V]QNZg[XoZJcb4WL[[l9;=0
+!s100 k0oVhQbW]Bi>]O>>SOOI63
 R7
 31
 R8
 !i10b 1
 R9
-R109
-R110
+R114
+R115
 !i113 1
 R12
 R13
 Eresetstate
-Z111 w1540719641
+Z116 w1540719641
 R3
 R4
 R0
-Z112 8/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd
-Z113 F/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd
+Z117 8/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd
+Z118 F/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd
 l0
 L4
 V0fBeHzKZaO]HT0II`c?=P1
 !s100 QEiCjHIgaYn2aL;2;BIiL2
 R7
 31
-R8
+R22
 !i10b 1
-R9
-Z114 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd|
-Z115 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd|
+R23
+Z119 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd|
+Z120 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/resetState.vhd|
 !i113 1
 R12
 R13
@@ -823,82 +862,45 @@ VB:;f=Da3S^5TkPgR4BOd@3
 !s100 l@ho204;4;75cm]Fa8Vzl1
 R7
 31
-R8
+R22
 !i10b 1
-R9
-R114
-R115
-!i113 1
-R12
-R13
-Esignextended6
-Z116 w1540486143
-R3
-R4
-R0
-Z117 8/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd
-Z118 F/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd
-l0
-L4
-V?UKKi9E^mPBc;fQG7Yf[33
-!s100 <d2N?bP4KA0DQA`=XEZZY3
-R7
-31
-R8
-!i10b 1
-R9
-Z119 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd|
-Z120 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd|
-!i113 1
-R12
-R13
-Adescription
-R3
-R4
-DEx4 work 13 signextended6 0 22 ?UKKi9E^mPBc;fQG7Yf[33
-l12
-L11
-VmkG548;EXcY<nR[Xf<O243
-!s100 OD;ELPQ2PHg?XamK=JOAl0
-R7
-31
-R8
-!i10b 1
-R9
+R23
 R119
 R120
 !i113 1
 R12
 R13
-Esignextended9
-Z121 w1540487106
+Esignextended6
+Z121 w1540735943
+R2
 R3
 R4
 R0
-Z122 8/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd
-Z123 F/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd
+Z122 8/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd
+Z123 F/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd
 l0
-L4
-VAIjPbdK89>>id8Pb]dUbL0
-!s100 FlFnU=fLcZ6C^Ca:Ph:N;3
+L5
+VM>G:O1aEP[d^_8^4kY;U03
+!s100 0kCz`]DeQg5:zehNYmjmU3
 R7
 31
 R8
 !i10b 1
 R9
-Z124 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd|
-Z125 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd|
+Z124 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd|
+Z125 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/signExtended6.vhd|
 !i113 1
 R12
 R13
 Adescription
+R2
 R3
 R4
-DEx4 work 13 signextended9 0 22 AIjPbdK89>>id8Pb]dUbL0
-l12
-L11
-VKhJ2m2hje<8i1lP^@1E>L1
-!s100 :1AdjWGe]jf1THkfY@Cai3
+DEx4 work 13 signextended6 0 22 M>G:O1aEP[d^_8^4kY;U03
+l13
+L12
+VSV4dQZ>fIeI3nI46W2Al82
+!s100 K@2j7B4EZX2I]AV4O;bWY2
 R7
 31
 R8
@@ -909,13 +911,54 @@ R125
 !i113 1
 R12
 R13
-Esignextended9spl
-Z126 w1540494621
+Esignextended9
+Z126 w1540735859
+R2
 R3
 R4
 R0
-Z127 8/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd
-Z128 F/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd
+Z127 8/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd
+Z128 F/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd
+l0
+L5
+VRNFZEGJ@;TzH[:aSjdg0S2
+!s100 S7O>VglCHfg<>P6<:^mXM0
+R7
+31
+R8
+!i10b 1
+R9
+Z129 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd|
+Z130 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/signExtended9.vhd|
+!i113 1
+R12
+R13
+Adescription
+R2
+R3
+R4
+DEx4 work 13 signextended9 0 22 RNFZEGJ@;TzH[:aSjdg0S2
+l13
+L12
+V3gS[zElV9jz_QBA16;MEC2
+!s100 fY<z?>PUl`]Vh<n]5U@Y43
+R7
+31
+R8
+!i10b 1
+R9
+R129
+R130
+!i113 1
+R12
+R13
+Esignextended9spl
+Z131 w1540494621
+R3
+R4
+R0
+Z132 8/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd
+Z133 F/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd
 l0
 L4
 Vi?P8I3BHWdZLXBg@[JEFi1
@@ -925,8 +968,8 @@ R7
 R8
 !i10b 1
 R9
-Z129 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd|
-Z130 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd|
+Z134 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd|
+Z135 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/SignExtended9spl.vhd|
 !i113 1
 R12
 R13
@@ -943,18 +986,18 @@ R7
 R8
 !i10b 1
 R9
-R129
-R130
+R134
+R135
 !i113 1
 R12
 R13
 Esixteenbitregister
-Z131 w1540713539
+Z136 w1540713539
 R3
 R4
 R0
-Z132 8/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd
-Z133 F/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd
+Z137 8/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd
+Z138 F/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd
 l0
 L4
 Vgk:AmbhKina[zTdjf?LR`2
@@ -964,8 +1007,8 @@ R7
 R8
 !i10b 1
 R9
-Z134 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd|
-Z135 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd|
+Z139 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd|
+Z140 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/sixteenBitRegister.vhd|
 !i113 1
 R12
 R13
@@ -982,18 +1025,18 @@ R7
 R8
 !i10b 1
 R9
-R134
-R135
+R139
+R140
 !i113 1
 R12
 R13
 Etempregisterinputa
-Z136 w1540643961
+Z141 w1540643961
 R3
 R4
 R0
-Z137 8/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd
-Z138 F/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd
+Z142 8/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd
+Z143 F/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd
 l0
 L4
 VZ28h2iJL]Y54FO1zVYVSA1
@@ -1003,8 +1046,8 @@ R7
 R8
 !i10b 1
 R9
-Z139 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd|
-Z140 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd|
+Z144 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd|
+Z145 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputA.vhd|
 !i113 1
 R12
 R13
@@ -1021,18 +1064,18 @@ R7
 R8
 !i10b 1
 R9
-R139
-R140
+R144
+R145
 !i113 1
 R12
 R13
 Etempregisterinputb
-Z141 w1540644739
+Z146 w1540644739
 R3
 R4
 R0
-Z142 8/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd
-Z143 F/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd
+Z147 8/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd
+Z148 F/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd
 l0
 L4
 Vn;XSEPhFm8Z9ia4[33i^J3
@@ -1042,8 +1085,8 @@ R7
 R8
 !i10b 1
 R9
-Z144 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd|
-Z145 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd|
+Z149 !s90 -reportprogress|300|-93|-work|work|/home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd|
+Z150 !s107 /home/geek-at-work/Desktop/EE-309-Project-1/TempRegisterInputB.vhd|
 !i113 1
 R12
 R13
@@ -1060,8 +1103,8 @@ R7
 R8
 !i10b 1
 R9
-R144
-R145
+R149
+R150
 !i113 1
 R12
 R13

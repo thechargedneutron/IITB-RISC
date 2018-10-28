@@ -83,6 +83,17 @@ architecture behave of IITB_RISC is
   				q : OUT STD_LOGIC_VECTOR(15 downto 0));
   end component;
 
+	component conditionalsixteenBitRegister is
+	port (d : IN STD_LOGIC_VECTOR(15 downto 0);
+				e : IN STD_LOGIC_VECTOR(15 downto 0);
+				ld1 : IN STD_LOGIC;
+				ld2 : IN STD_LOGIC;
+				clr : IN STD_LOGIC;
+				clk : IN STD_LOGIC;
+
+				q : OUT STD_LOGIC_VECTOR(15 downto 0));
+	end component;
+
 	component eightBitRegister is
   	port (d : IN STD_LOGIC_VECTOR(7 downto 0);
   				ld : IN STD_LOGIC;
@@ -91,6 +102,17 @@ architecture behave of IITB_RISC is
 
   				q : OUT STD_LOGIC_VECTOR(7 downto 0));
   end component;
+
+	component conditionalEightBitRegister is
+	port (d : IN STD_LOGIC_VECTOR(7 downto 0);
+				e : IN STD_LOGIC_VECTOR(7 downto 0);
+				ld1 : IN STD_LOGIC;
+				ld2 : IN STD_LOGIC;
+				clr : IN STD_LOGIC;
+				clk : IN STD_LOGIC;
+
+				q : OUT STD_LOGIC_VECTOR(7 downto 0));
+	end component;
 
 	component fiveBitRegister is
   	port (d : IN STD_LOGIC_VECTOR(4 downto 0);
@@ -136,6 +158,7 @@ architecture behave of IITB_RISC is
 
   component registerFileWriteEnable is
 	port (Rf_a3 : IN STD_LOGIC_VECTOR(2 downto 0);
+				current_state : IN STD_LOGIC_VECTOR(4 downto 0);
         R0_enable, R1_enable, R2_enable, R3_enable, R4_enable, R5_enable, R6_enable, R7_enable : OUT STD_LOGIC
         );
   end component;
@@ -335,7 +358,7 @@ end component;
     RF1: registerFileAccess port map(R0, R1, R2, R3, R4, R5, R6, R7, Rf_a1, Rf_d1);
     RF2: registerFileAccess port map(R0, R1, R2, R3, R4, R5, R6, R7, Rf_a2, Rf_d2);
 
-    RegWriteEnable: registerFileWriteEnable port map(Rf_a3, R0_enable, R1_enable, R2_enable, R3_enable, R4_enable, R5_enable, R6_enable, R7_enable);
+    RegWriteEnable: registerFileWriteEnable port map(Rf_a3, current_state, R0_enable, R1_enable, R2_enable, R3_enable, R4_enable, R5_enable, R6_enable, R7_enable);
     Reg0: sixteenBitRegister port map(Rf_d3, R0_enable, clear, clock, R0);
     Reg1: sixteenBitRegister port map(Rf_d3, R1_enable, clear, clock, R1);
     Reg2: sixteenBitRegister port map(Rf_d3, R2_enable, clear, clock, R2);
@@ -343,7 +366,9 @@ end component;
     Reg4: sixteenBitRegister port map(Rf_d3, R4_enable, clear, clock, R4);
     Reg5: sixteenBitRegister port map(Rf_d3, R5_enable, clear, clock, R5);
     Reg6: sixteenBitRegister port map(Rf_d3, R6_enable, clear, clock, R6);
-    Reg7: sixteenBitRegister port map(Rf_d3, R7_enable, clear, clock, R7);
+--    Reg7: sixteenBitRegister port map(Rf_d3, R7_enable, clear, clock, R7);
+
+		Reg7: conditionalsixteenBitRegister port map(R7_in, Rf_d3, R7_direct_enable, R7_enable, clear, clock, R7);
 
     RegInpA: RegisterFileInputA port map(instruction(11 downto 9), instruction(8 downto 6), PE_out, current_state, Rf_a1);
     RegInpB: Rf_a2 <= instruction(8 downto 6); --No need of Multiplexing
@@ -353,22 +378,24 @@ end component;
 		TempRegA: TempRegisterInputA port map(Rf_d1, alu_out, current_state, t1_in, t1_write_enable);
 		TempRegB: TempRegisterInputB port map(Rf_d2, alu_out, mem_d, Rf_d1, current_state, t2_in, t2_write_enable);
 
-		PC: sixteenBitRegister port map(PC_in, PC_enable, clear, clock, PC_out);
+	--	PC: sixteenBitRegister port map(PC_in, PC_enable, clear, clock, PC_out);
 		PCInput1: PCInput port map (Rf_d1, alu_out, current_state, PC_in, PC_enable);
 
 		R7Input: Register7Input port map (Rf_d1, alu_out, PC_out, current_state, R7_in, R7_direct_enable);
-		Reg7Direct: sixteenBitRegister port map(R7_in, R7_direct_enable, clear, clock, R7);
+--		Reg7Direct: sixteenBitRegister port map(R7_in, R7_direct_enable, clear, clock, R7);
 
-		PCDirect: sixteenBitRegister port map (Rf_d3, R7_enable , clear, clock, PC_out);  --Write to PC when R7 is being modified
+--		PCDirect: sixteenBitRegister port map (Rf_d3, R7_enable , clear, clock, PC_out);  --Write to PC when R7 is being modified
+		PC_conditional_inp: conditionalsixteenBitRegister port map (Rf_d3, PC_in, R7_enable, PC_enable, clear, clock, PC_out);
 
 		--Priority Encoder code goes here
-		PriorityEncoderBlock: eightBitRegister port map (instruction(7 downto 0), PE_enable, clear, clock, PriorityEncoderReg); --In State2
+	--	PriorityEncoderBlock: eightBitRegister port map (instruction(7 downto 0), PE_enable, clear, clock, PriorityEncoderReg); --In State2
 		PEEnableBlock : PEEnable port map (current_state, PE_enable);
 		PEBlock: PriorityEncoder port map (PriorityEncoderReg, PE_out, PE0);
 
 		PriorityModif : PriorityModify port map (PriorityEncoderReg, PE_out, current_state, PE_zero_enable, ModifiedPriorityReg);
-		Modify : eightBitRegister port map (ModifiedPriorityReg, PE_zero_enable, clear, clock, PriorityEncoderReg);
+--		Modify : eightBitRegister port map (ModifiedPriorityReg, PE_zero_enable, clear, clock, PriorityEncoderReg);
 
+		PriorityEncoderCondition: conditionalEightBitRegister port map (instruction(7 downto 0), ModifiedPriorityReg, PE_enable, PE_zero_enable, clear, clock, PriorityEncoderReg);
 		--Priority Encoder code ends here
 
 

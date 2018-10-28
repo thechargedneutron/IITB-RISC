@@ -15,7 +15,7 @@ end Memory;
 architecture behave of Memory is
 type mem_array is array	(0	to 2**7 -1) of
 	std_logic_vector(15 downto 0);
-signal RAM:	mem_array:= (x"2000", x"2000", x"1000", x"4000", x"5000", others => x"0000");
+signal RAM:	mem_array:= (x"3051", x"3255", x"0050", others => x"0000");
 
 begin
 process(clk)

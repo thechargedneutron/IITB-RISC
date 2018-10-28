@@ -29,7 +29,6 @@ architecture behave of ALULogic is
   constant SZ: STD_LOGIC_VECTOR(4 downto 0) := "10010";
   constant one: STD_LOGIC_VECTOR(15 downto 0) := "0000000000000001";
   constant zero: STD_LOGIC_VECTOR(15 downto 0) := "0000000000000000";
-
   begin
     process (current_state, opcode, PC, t1, t2, SE6_op, SE9_op)
 	 variable temp_answer: STD_LOGIC_VECTOR(15 downto 0);
@@ -72,10 +71,10 @@ architecture behave of ALULogic is
                 ALU_temp_z <= '0';
         when S3 =>
                 ALU_out <= STD_LOGIC_VECTOR(unsigned(t1) + unsigned(SE6_op));
-                C_out <= t1(15) xor SE6_op(15);
+                temp_answer := STD_LOGIC_VECTOR(unsigned(t1) + unsigned(SE6_op));
+                C_out <= (t1(15) and SE6_op(15) and (not temp_answer(15))) or ((not t1(15)) and (not SE6_op(15)) and temp_answer(15));
                 carry_enable <= '1';
                 zero_enable <= '1';
-                temp_answer := STD_LOGIC_VECTOR(unsigned(t1) + unsigned(SE6_op));
                 if temp_answer = zero then
                   Z_out <= '1';
                 else
@@ -97,10 +96,10 @@ architecture behave of ALULogic is
         when S4 =>
               if opcode = "0000" then
                 ALU_out <= STD_LOGIC_VECTOR(unsigned(t2) + unsigned(t1));
-                C_out <= t1(15) xor t2(15);
+                temp_answer := STD_LOGIC_VECTOR(unsigned(t2) + unsigned(t1));
+                C_out <= (t1(15) and t2(15) and (not temp_answer(15))) or ((not t1(15)) and (not t2(15)) and temp_answer(15));
                 carry_enable <= '1';
                 zero_enable <= '1';
-                temp_answer := STD_LOGIC_VECTOR(unsigned(t2) + unsigned(t1));
                 if temp_answer = zero then
                   Z_out <= '1';
                 else
